@@ -1,0 +1,20 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  font-family: 'Rubik', sans-serif;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+/*# sourceMappingURL=style.css.map */
