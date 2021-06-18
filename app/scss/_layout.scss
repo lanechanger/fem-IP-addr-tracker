@@ -36,11 +36,30 @@
 
   &__form {
     margin-top: rem(29px);
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  &__search {}
+  &__search {
+    flex-grow: 1;
+  }
 
   &__btn {}
+}
+
+.output {
+  margin-top: rem(24px);
+
+  &__section:not(:first-child) {
+    margin-top: rem(24px);
+  }
+
+  &__header {}
+
+  &__text {
+    margin-top: rem(7px);
+  }
+}
+
+.attribution {
+  bottom: 1rem;
+  position: fixed;
 }

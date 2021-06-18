@@ -20,6 +20,10 @@ body {
   color: #2b2b2b;
 }
 
+li {
+  list-style-type: none;
+}
+
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
@@ -62,8 +66,27 @@ body {
 
 .app__form {
   margin-top: 1.8125rem;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.app__search {
+  flex-grow: 1;
+}
+
+.output {
+  margin-top: 1.5rem;
+}
+
+.output__section:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.output__text {
+  margin-top: 0.4375rem;
+}
+
+.attribution {
+  bottom: 1rem;
+  position: fixed;
 }
 
 .app__header {
@@ -75,10 +98,11 @@ body {
 }
 
 .app__form {
-  background: #FFFFFF;
+  background-color: #fff;
   box-shadow: 0px 3.125rem 3.125rem -1.5625rem rgba(0, 0, 0, 0.0983665);
   border-radius: 0.9375rem;
   max-width: 34.375rem;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -86,7 +110,6 @@ body {
   font-size: 1.125rem;
   line-height: calc(21 / 18);
   padding: 1rem 0 1rem 1.5rem;
-  flex-grow: 1;
 }
 
 .app__search::placeholder {
@@ -99,5 +122,39 @@ body {
   padding: 1.28125rem 1.46875rem;
   cursor: pointer;
   border: none;
+}
+
+.output {
+  background-color: #fff;
+  box-shadow: 0px 3.125rem 3.125rem -1.5625rem rgba(0, 0, 0, 0.0983665);
+  border-radius: 0.9375rem;
+  max-width: 69.375rem;
+  width: 100%;
+  padding: 1.625rem 1.5rem 1.5rem 1.5rem;
+  line-height: calc(12/10);
+}
+
+@media screen and (min-width: 1023px) {
+  .output {
+    padding: 2.3125rem 2rem;
+  }
+}
+
+.output__header {
+  color: #969696;
+  letter-spacing: 0.09115rem;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+
+.output__text {
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: -0.01116rem;
+}
+
+.attribution {
+  z-index: -1;
 }
 /*# sourceMappingURL=style.css.map */

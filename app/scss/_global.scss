@@ -20,6 +20,10 @@ body {
   color: $veryDarkGray;
 }
 
+li {
+  list-style-type: none;
+}
+
 .attribution {
   font-size: rem(11px);
   text-align: center;

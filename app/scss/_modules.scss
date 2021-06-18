@@ -8,10 +8,11 @@
   }
 
   &__form {
-    background: #FFFFFF;
+    background-color: #fff;
     box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
     border-radius: rem(15px);
     max-width: rem(550px);
+    width: 100%;
     overflow: hidden;
   }
 
@@ -19,10 +20,9 @@
     font-size: rem(18px);
     line-height: calc(21 / 18);
     padding: rem(16px) 0 rem(16px) rem(24px);
-    flex-grow: 1;
 
     &::placeholder {
-      color: $lightGray;
+      color: $darkGray;
       font-size: unquote("clamp(14px, 14px + (((100vw - 375px) / 55) * 4), 18px)");
     }
   }
@@ -33,4 +33,38 @@
     cursor: pointer;
     border: none;
   }
+}
+
+.output {
+  background-color: #fff;
+  box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
+  border-radius: rem(15px);
+  max-width: rem(1110px);
+  width: 100%;
+  padding: rem(26px) rem(24px) rem(24px) rem(24px);
+  line-height: calc(12/10);
+
+  @include breakpoint-up(medium) {
+    padding: rem(37px) rem(32px);
+  }
+
+  &__section {}
+
+  &__header {
+    color: $darkGray;
+    letter-spacing: rem(1.45833px);
+    text-transform: uppercase;
+    font-size: rem(10px);
+    font-weight: 700;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: rem(20px);
+    letter-spacing: rem(-0.178571px);
+  }
+}
+
+.attribution {
+  z-index: -1;
 }
