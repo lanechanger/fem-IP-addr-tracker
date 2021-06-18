@@ -13,18 +13,39 @@
   <script src="/app/js/script.js" defer></script>
 </head>
 
-<body>
+<body class="app l-site-container">
 
-  IP Address Tracker
+  <h1 class="app__header">IP Address Tracker</h1>
 
-  Search for any IP address or domain
+  <div class="app__form">
+    <input type="search" class="app__search" placeholder="Search for any IP address or domain">
+    <button type="button" class="app__btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+        <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" /></svg>
+    </button>
+  </div>
 
-  IP Address
-  Location
-  Timezone
-  UTC
-  <!-- add offset value dynamically using the API -->
-  ISP
+  <div class="l-flex l-flex--col l-flex--lg-row l-flex--ai-c">
+    <div class="l-flex l-flex--col">
+      <h2>IP Address</h2>
+      <span>192.212.174.101</span>
+    </div>
+    <div class="l-flex l-flex--col">
+      <h2>Location</h2>
+      <span>Brooklyn, NY 10001</span>
+    </div>
+    <div class="l-flex l-flex--col">
+      <h2>Timezone</h2>
+      <span>UTC-05:00</span>
+      <!-- add offset value dynamically using the API -->
+    </div>
+    <div class="l-flex l-flex--col">
+      <h2>ISP</h2>
+      <span>SpaceX Starlink</span>
+    </div>
+  </div>
+
+  <div></div>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.

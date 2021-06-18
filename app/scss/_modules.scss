@@ -1,0 +1,32 @@
+.app {
+  &__header {
+    font-weight: 500;
+    font-size: rem(26px);
+    line-height: calc(30 / 26);
+    letter-spacing: rem(-0.232143px);
+    color: #FFFFFF;
+  }
+
+  &__form {
+    background: #FFFFFF;
+    box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
+    border-radius: rem(15px);
+    max-width: rem(550px);
+  }
+
+  &__search {
+    font-size: rem(18px);
+    line-height: calc(21 / 18);
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+
+  &__btn {
+    background: #000000;
+    padding: rem(20.5px) rem(23.5px);
+    cursor: pointer;
+    border: none;
+  }
+}

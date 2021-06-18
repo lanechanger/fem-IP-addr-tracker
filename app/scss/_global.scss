@@ -3,14 +3,25 @@ html {
   font-size: 100%;
 }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
 body {
   height: 100%;
   min-height: 100vh;
   font-family: 'Rubik', sans-serif;
+  background: url("/images/pattern-bg.png") no-repeat right -485px top;
+  text-align: center;
+  color: $veryDarkGray;
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: rem(11px);
   text-align: center;
 }
 

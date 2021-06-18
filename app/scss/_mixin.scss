@@ -14,7 +14,7 @@ $breakpoints-up: (small: 639px, medium: 1023px, large: 1399px);
 }
 
 @function stripUnit($value) {
-  @return $value / ($value * 0)+1;
+  @return $value / ($value * 0 + 1);
 }
 
 @function rem($value) {

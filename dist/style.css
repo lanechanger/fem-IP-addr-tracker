@@ -3,18 +3,97 @@ html {
   font-size: 100%;
 }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
 body {
   height: 100%;
   min-height: 100vh;
   font-family: 'Rubik', sans-serif;
+  background: url("/images/pattern-bg.png") no-repeat right -485px top;
+  text-align: center;
+  color: #2b2b2b;
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-align: center;
 }
 
 .attribution a {
   color: #3e52a3;
+}
+
+.l-site-container {
+  padding: 1.625rem 1.5rem 0 1.5rem;
+}
+
+.l-flex {
+  display: flex;
+}
+
+.l-flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.l-flex--jc-sb {
+  justify-content: space-between;
+}
+
+.l-flex--ai-c {
+  align-items: center;
+}
+
+.l-flex--col {
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1023px) {
+  .l-flex--lg-row {
+    flex-direction: row;
+  }
+}
+
+.app__form {
+  margin-top: 1.8125rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app__header {
+  font-weight: 500;
+  font-size: 1.625rem;
+  line-height: calc(30 / 26);
+  letter-spacing: -0.01451rem;
+  color: #FFFFFF;
+}
+
+.app__form {
+  background: #FFFFFF;
+  box-shadow: 0px 3.125rem 3.125rem -1.5625rem rgba(0, 0, 0, 0.0983665);
+  border-radius: 0.9375rem;
+  max-width: 34.375rem;
+}
+
+.app__search {
+  font-size: 1.125rem;
+  line-height: calc(21 / 18);
+}
+
+.app__search::placeholder {
+  opacity: 0.5;
+}
+
+.app__btn {
+  background: #000000;
+  padding: 1.28125rem 1.46875rem;
+  cursor: pointer;
+  border: none;
 }
 /*# sourceMappingURL=style.css.map */
