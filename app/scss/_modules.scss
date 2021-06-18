@@ -12,14 +12,18 @@
     box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
     border-radius: rem(15px);
     max-width: rem(550px);
+    overflow: hidden;
   }
 
   &__search {
     font-size: rem(18px);
     line-height: calc(21 / 18);
+    padding: rem(16px) 0 rem(16px) rem(24px);
+    flex-grow: 1;
 
     &::placeholder {
-      opacity: 0.5;
+      color: $lightGray;
+      font-size: unquote("clamp(14px, 14px + (((100vw - 375px) / 55) * 4), 18px)");
     }
   }
 
