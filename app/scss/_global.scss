@@ -18,17 +18,22 @@ body {
   background: url("/images/pattern-bg.png") no-repeat right -485px top;
   text-align: center;
   color: $veryDarkGray;
+
+  @include breakpoint-up(medium) {
+    background: url("/images/pattern-bg.png") no-repeat;
+  }
 }
 
 li {
   list-style-type: none;
 }
 
-.attribution {
-  font-size: rem(11px);
-  text-align: center;
-}
+hr {
+  border: 0;
+  border-color: white;
 
-.attribution a {
-  color: hsl(228, 45%, 44%);
+  @include breakpoint-up(medium) {
+    border-left: 1px solid #d9d9d9;
+    height: rem(87px);
+  }
 }

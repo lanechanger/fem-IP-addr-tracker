@@ -1,6 +1,10 @@
 .l- {
   &site-container {
     padding: rem(26px) rem(24px) 0 rem(24px);
+
+    @include breakpoint-up(medium) {
+      padding-top: rem(33px);
+    }
   }
 
   &flex {
@@ -28,6 +32,12 @@
         flex-direction: row;
       }
     }
+
+    &--lg-ai-s {
+      @include breakpoint-up(medium) {
+        align-items: flex-start;
+      }
+    }
   }
 }
 
@@ -36,6 +46,10 @@
 
   &__form {
     margin-top: rem(29px);
+
+    @include breakpoint-up(medium) {
+      margin-top: rem(31px);
+    }
   }
 
   &__search {
@@ -48,14 +62,32 @@
 .output {
   margin-top: rem(24px);
 
-  &__section:not(:first-child) {
-    margin-top: rem(24px);
+  @include breakpoint-up(medium) {
+    margin-top: rem(48px);
+  }
+
+  &__section {
+    @include breakpoint-up(medium) {
+      margin: 0 rem(10px);
+    }
+
+    &:not(:first-child) {
+      margin-top: rem(24px);
+
+      @include breakpoint-up(medium) {
+        margin-top: 0;
+      }
+    }
   }
 
   &__header {}
 
   &__text {
     margin-top: rem(7px);
+
+    @include breakpoint-up(medium) {
+      margin-top: rem(13px);
+    }
   }
 }
 
