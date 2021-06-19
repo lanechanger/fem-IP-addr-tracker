@@ -15,15 +15,8 @@ body {
   height: 100%;
   min-height: 100vh;
   font-family: 'Rubik', sans-serif;
-  background: url("/images/pattern-bg.png") no-repeat right -485px top;
   text-align: center;
   color: #2b2b2b;
-}
-
-@media screen and (min-width: 900px) {
-  body {
-    background: url("/images/pattern-bg.png") no-repeat;
-  }
 }
 
 li {
@@ -37,8 +30,9 @@ hr {
 
 @media screen and (min-width: 900px) {
   hr {
-    border-left: 1px solid #d9d9d9;
-    height: 5.4375rem;
+    border-left: 0.0625rem solid #d9d9d9;
+    align-self: center;
+    height: 4.6875rem;
   }
 }
 
@@ -87,6 +81,7 @@ hr {
 
 .app__form {
   margin-top: 1.8125rem;
+  flex: 1 0 3.625rem;
 }
 
 @media screen and (min-width: 900px) {
@@ -112,6 +107,7 @@ hr {
 @media screen and (min-width: 900px) {
   .output__section {
     margin: 0 0.625rem;
+    flex: 0 1 13.3125rem;
   }
 }
 
@@ -135,9 +131,26 @@ hr {
   }
 }
 
+.map {
+  flex-grow: 1;
+}
+
 .attribution {
   bottom: 1rem;
   position: fixed;
+}
+
+.app {
+  background: url("/images/pattern-bg.png") no-repeat right -590px top/cover;
+  width: 100%;
+  height: 18.75rem;
+}
+
+@media screen and (min-width: 900px) {
+  .app {
+    background-position: center;
+    height: 17.5rem;
+  }
 }
 
 .app__header {
@@ -190,18 +203,13 @@ hr {
   width: 100%;
   padding: 1.625rem 1.5rem 1.5rem 1.5rem;
   line-height: calc(12/10);
+  z-index: 2;
 }
 
 @media screen and (min-width: 900px) {
   .output {
     padding: 2.3125rem 1.375rem;
     text-align: left;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .output__section {
-    flex: 0 1 13.3125rem;
   }
 }
 
@@ -235,10 +243,15 @@ hr {
   }
 }
 
+.map {
+  width: 100%;
+}
+
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
   z-index: -1;
+  width: 100%;
 }
 
 .attribution a {

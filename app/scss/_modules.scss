@@ -1,4 +1,13 @@
 .app {
+  background: url("/images/pattern-bg.png") no-repeat right -590px top/cover;
+  width: 100%;
+  height: rem(300px);
+
+  @include breakpoint-up(medium) {
+    background-position: center;
+    height: rem(280px);
+  }
+
   &__header {
     font-weight: 500;
     font-size: rem(26px);
@@ -48,16 +57,11 @@
   width: 100%;
   padding: rem(26px) rem(24px) rem(24px) rem(24px);
   line-height: calc(12/10);
+  z-index: 2;
 
   @include breakpoint-up(medium) {
     padding: rem(37px) rem(22px);
     text-align: left;
-  }
-
-  &__section {
-    @include breakpoint-up(medium) {
-      flex: 0 1 rem(213px);
-    }
   }
 
   &__header {
@@ -87,10 +91,15 @@
   }
 }
 
+.map {
+  width: 100%;
+}
+
 .attribution {
   font-size: rem(11px);
   text-align: center;
   z-index: -1;
+  width: 100%;
 
   & a {
     color: hsl(228, 45%, 44%);

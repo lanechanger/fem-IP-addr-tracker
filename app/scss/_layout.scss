@@ -46,6 +46,7 @@
 
   &__form {
     margin-top: rem(29px);
+    flex: 1 0 rem(58px);
 
     @include breakpoint-up(medium) {
       margin-top: rem(31px);
@@ -69,6 +70,7 @@
   &__section {
     @include breakpoint-up(medium) {
       margin: 0 rem(10px);
+      flex: 0 1 rem(213px);
     }
 
     &:not(:first-child) {
@@ -89,6 +91,10 @@
       margin-top: rem(13px);
     }
   }
+}
+
+.map {
+  flex-grow: 1;
 }
 
 .attribution {
