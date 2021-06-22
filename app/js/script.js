@@ -33,6 +33,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: mapBoxKey
 }).addTo(mymap);
 
+initMap();
+
 // Parse input, is it an ip address? Email? or domain name?
 btn.addEventListener("click", function (e) {
   let input = search.value;
@@ -53,6 +55,17 @@ btn.addEventListener("click", function (e) {
     callGeoIpAPI(input, property);
   }
 });
+
+// Initialize map to user's ip
+async function initMap() {
+  try {
+    fetch("https://api.ipify.org/?format=json")
+      .then(response => response.json())
+      .then(json => callGeoIpAPI(json.ip, "ipAddress"));
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // Make the call to Geo IP like below
 // https://geo.ipify.org/api/v1?apiKey=at_5Enpp3MpASTFXAGtCFSh5GF2HEXan&ipAddress=192.212.174.101
