@@ -1,3 +1,6 @@
+import GEO_IP_KEY from "./apikey.js";
+import MAP_BOX_KEY from "./apikey.js";
+
 const search = document.querySelector("#app-search");
 const btn = document.querySelector("#app-btn");
 const ipAddr = document.querySelector("#out-ip-addr");
@@ -9,8 +12,8 @@ const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[
 const urlRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const geoIpKey = 'at_5Enpp3MpASTFXAGtCFSh5GF2HEXan';
-const mapBoxKey = 'pk.eyJ1IjoibGFuZWNoYW5nZXIiLCJhIjoiY2txNDhxaHliMGVsYjJucGZzOXQ3eTdwdiJ9.llor3iPA3Q1hWydh3yvLlA';
+const geoIpKey = GEO_IP_KEY;
+const mapBoxKey = MAP_BOX_KEY;
 
 let property;
 // initialize the map on the "map" div with a given center and zoom
