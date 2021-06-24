@@ -1,5 +1,7 @@
-import GEO_IP_KEY from "./apikey.js";
-import MAP_BOX_KEY from "./apikey.js";
+import {
+  GEO_IP_KEY as geoIpKey,
+  MAP_BOX_KEY as mapBoxKey
+} from "./apikey.js";
 
 const search = document.querySelector("#app-search");
 const btn = document.querySelector("#app-btn");
@@ -12,30 +14,7 @@ const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[
 const urlRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const geoIpKey = GEO_IP_KEY;
-const mapBoxKey = MAP_BOX_KEY;
-
-let property;
-// initialize the map on the "map" div with a given center and zoom
-let mymap = L.map('mapid');
-mymap.setView([51.505, -0.09], 20);
-let myIcon = L.icon({
-  iconUrl: '/images/icon-location.svg',
-  iconSize: [46, 56],
-  iconAnchor: [22, 94] // play around to find this out
-});
-L.marker([51.505, -0.09], {
-  icon: myIcon
-}).addTo(mymap);
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  maxZoom: 18,
-  id: 'mapbox/streets-v11',
-  tileSize: 512,
-  zoomOffset: -1,
-  accessToken: mapBoxKey
-}).addTo(mymap);
-
+let property, mymap, myIcon;
 initMap();
 
 // Parse input, is it an ip address? Email? or domain name?
@@ -56,18 +35,45 @@ btn.addEventListener("click", function (e) {
 
   if (property) {
     callGeoIpAPI(input, property);
+    search.value = "";
   }
 });
 
-// Initialize map to user's ip
-async function initMap() {
-  try {
-    fetch("https://api.ipify.org/?format=json")
-      .then(response => response.json())
-      .then(json => callGeoIpAPI(json.ip, "ipAddress"));
-  } catch (error) {
-    console.log(error);
-  }
+// initialize the map at the world view and locate user's location
+function initMap() {
+  mymap = L.map('mapid').fitWorld();
+  myIcon = L.icon({
+    iconUrl: '/images/icon-location.svg',
+    iconSize: [46, 56],
+    iconAnchor: [22, 94] // play around to find this out
+  });
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: mapBoxKey
+  }).addTo(mymap);
+
+  mymap.on('locationfound', onLocationFound);
+  mymap.on('locationerror', onLocationError);
+
+  mymap.locate({
+    setView: true,
+    maxZoom: 18
+  });
+}
+
+function onLocationFound(e) {
+  L.marker(e.latlng, {
+    icon: myIcon
+  }).addTo(mymap);
+}
+
+function onLocationError(e) {
+  alert(e.message);
 }
 
 // Make the call to Geo IP like below
@@ -105,5 +111,5 @@ function drawMap(lat, lng) {
   mymap.setView([lat, lng], 13);
   L.marker([lat, lng], {
     icon: myIcon
-  }).addTo(mymap);
+  }).setLatLng([lat, lng]);
 }
