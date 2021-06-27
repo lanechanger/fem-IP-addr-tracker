@@ -73,6 +73,8 @@
   }
 
   &__section {
+    min-width: rem(200px);
+
     @include breakpoint-up(medium) {
       margin: 0 rem(10px);
       flex: 0 1 rem(213px);

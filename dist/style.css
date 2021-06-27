@@ -109,6 +109,10 @@ hr {
   }
 }
 
+.output__section {
+  min-width: 12.5rem;
+}
+
 @media screen and (min-width: 900px) {
   .output__section {
     margin: 0 0.625rem;

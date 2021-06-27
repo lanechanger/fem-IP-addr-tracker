@@ -14,11 +14,12 @@ const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[
 const urlRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-let property, mymap, myIcon;
+let property, mymap, marker;
 initMap();
 
 // Parse input, is it an ip address? Email? or domain name?
 btn.addEventListener("click", function (e) {
+  e.preventDefault();
   let input = search.value;
 
   // Store the property based on what it is for use in the Geo IP API later
@@ -41,12 +42,21 @@ btn.addEventListener("click", function (e) {
 
 // initialize the map at the world view and locate user's location
 function initMap() {
-  mymap = L.map('mapid').fitWorld();
-  myIcon = L.icon({
-    iconUrl: '/images/icon-location.svg',
-    iconSize: [46, 56],
-    iconAnchor: [22, 94] // play around to find this out
-  });
+  mymap = L.map('mapid', {
+    minZoom: 1
+  })
+
+  mymap.fitWorld();
+
+  marker = L.marker([1, 1], {
+    icon: L.icon({
+      iconUrl: '/images/icon-location.svg',
+      iconSize: [46, 56],
+      iconAnchor: [22, 94]
+    })
+  })
+
+  marker.addTo(mymap);
 
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -57,23 +67,9 @@ function initMap() {
     accessToken: mapBoxKey
   }).addTo(mymap);
 
-  mymap.on('locationfound', onLocationFound);
-  mymap.on('locationerror', onLocationError);
-
-  mymap.locate({
-    setView: true,
-    maxZoom: 18
-  });
-}
-
-function onLocationFound(e) {
-  L.marker(e.latlng, {
-    icon: myIcon
-  }).addTo(mymap);
-}
-
-function onLocationError(e) {
-  alert(e.message);
+  fetch("https://api.ipify.org/?format=json")
+    .then(response => response.json())
+    .then(json => (callGeoIpAPI(json.ip, "ipAddress")));
 }
 
 // Make the call to Geo IP like below
@@ -101,15 +97,14 @@ async function callGeoIpAPI(input, property) {
 function parseGeoIpJSON(json) {
   ipAddr.textContent = json.ip;
   loc.textContent = `${json.location.city}, ${json.location.region}`;
-  timezone.textContent = json.location.timezone;
+  timezone.textContent = "UTC " + json.location.timezone;
   isp.textContent = json.isp;
 
   drawMap(json.location.lat, json.location.lng);
 }
 
+// Update the map's view and marker
 function drawMap(lat, lng) {
-  mymap.setView([lat, lng], 13);
-  L.marker([lat, lng], {
-    icon: myIcon
-  }).setLatLng([lat, lng]);
+  mymap.flyTo([lat, lng], 13);
+  marker.setLatLng([lat, lng]);
 }
