@@ -28,7 +28,7 @@ hr {
   border-color: white;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   hr {
     border-left: 0.0625rem solid #d9d9d9;
     align-self: center;
@@ -40,7 +40,7 @@ hr {
   padding: 1.625rem 1.5rem 0 1.5rem;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .l-site-container {
     padding-top: 2.0625rem;
   }
@@ -72,13 +72,13 @@ hr {
   flex-direction: column;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .l-flex--lg-row {
     flex-direction: row;
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .l-flex--lg-ai-s {
     align-items: flex-start;
   }
@@ -89,7 +89,7 @@ hr {
   flex: 1 0 3.625rem;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .app__form {
     margin-top: 1.9375rem;
   }
@@ -103,7 +103,7 @@ hr {
   margin-top: 1.5rem;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .output {
     margin-top: 3rem;
   }
@@ -113,7 +113,7 @@ hr {
   min-width: 12.5rem;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .output__section {
     margin: 0 0.625rem;
     flex: 0 1 13.3125rem;
@@ -124,9 +124,16 @@ hr {
   margin-top: 1.5rem;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .output__section:not(:first-child) {
     margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 1013px) {
+  .output__flag {
+    margin: auto;
+    margin-bottom: -10px;
   }
 }
 
@@ -134,7 +141,7 @@ hr {
   margin-top: 0.4375rem;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .output__text {
     margin-top: 0.8125rem;
   }
@@ -156,7 +163,7 @@ hr {
   z-index: 2;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .app {
     background-position: center;
     height: 17.5rem;
@@ -171,7 +178,7 @@ hr {
   color: #FFFFFF;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .app__header {
     font-size: 2rem;
     line-height: calc(30 / 32);
@@ -214,7 +221,7 @@ hr {
   line-height: calc(12/10);
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .output {
     padding: 2.3125rem 1.375rem;
     text-align: left;
@@ -229,7 +236,7 @@ hr {
   font-weight: 700;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .output__header {
     font-size: 0.75rem;
     line-height: calc(14 / 12);
@@ -243,12 +250,19 @@ hr {
   letter-spacing: -0.01116rem;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1014px) {
   .output__text {
     font-size: 1.625rem;
     line-height: calc(30 / 26);
     letter-spacing: -0.01451rem;
   }
+}
+
+.output__flag {
+  width: 40px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .map {

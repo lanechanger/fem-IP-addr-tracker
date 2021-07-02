@@ -89,6 +89,13 @@
     }
   }
 
+  &__flag {
+    @include breakpoint-down(small) {
+      margin: auto;
+      margin-bottom: -10px;
+    }
+  }
+
   &__header {}
 
   &__text {

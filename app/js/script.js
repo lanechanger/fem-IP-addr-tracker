@@ -7,6 +7,7 @@ const search = document.querySelector("#app-search");
 const btn = document.querySelector("#app-btn");
 const ipAddr = document.querySelector("#out-ip-addr");
 const loc = document.querySelector("#out-location");
+const flag = document.querySelector("#out-flag");
 const timezone = document.querySelector("#out-timezone");
 const isp = document.querySelector("#out-isp");
 
@@ -94,11 +95,22 @@ async function callGeoIpAPI(input, property) {
 //    property location>city , location>region --> Location 
 //    property location>timezone --> timezone
 //    property "isp" --> ISP
+// At the same time, call country REST API to get their flag
 function parseGeoIpJSON(json) {
-  ipAddr.textContent = json.ip;
-  loc.textContent = `${json.location.city}, ${json.location.region}`;
-  timezone.textContent = "UTC " + json.location.timezone;
-  isp.textContent = json.isp;
+  console.log(json);
+
+  fetch(`https://restcountries.eu/rest/v2/alpha/${json.location.country}`)
+    .then(response => response.json())
+    .then(countryJson => {
+      // retrieve the flag through the Countries REST API
+      flag.style.backgroundImage = `url(${countryJson.flag})`;
+
+      // at the same time, update the other text sections with the Geo IP API's data
+      ipAddr.textContent = json.ip;
+      loc.textContent = `${json.location.city}, ${json.location.region}`;
+      timezone.textContent = "UTC " + json.location.timezone;
+      isp.textContent = json.isp;
+    });
 
   drawMap(json.location.lat, json.location.lng);
 }
