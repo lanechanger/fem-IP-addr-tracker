@@ -5,6 +5,7 @@ import {
 
 const search = document.querySelector("#app-search");
 const btn = document.querySelector("#app-btn");
+const form = document.querySelector("#app-form");
 const ipAddr = document.querySelector("#out-ip-addr");
 const loc = document.querySelector("#out-location");
 const flag = document.querySelector("#out-flag");
@@ -18,9 +19,14 @@ const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 let property, mymap, marker;
 initMap();
 
-// Parse input, is it an ip address? Email? or domain name?
-btn.addEventListener("click", function (e) {
+// prevent the form from submitting
+form.addEventListener("submit", function (e) {
   e.preventDefault();
+});
+
+
+// Parse input, is it an ip address? Email? or domain name?
+btn.addEventListener("click", function () {
   let input = search.value;
 
   // Store the property based on what it is for use in the Geo IP API later
@@ -120,3 +126,10 @@ function drawMap(lat, lng) {
   mymap.flyTo([lat, lng], 13);
   marker.setLatLng([lat, lng]);
 }
+
+// Adding an event listener to the button to listen for the enter key to make this user friendlier
+btn.addEventListener("keydown", function (event) {
+  if (event.keyCode == 13) {
+    btn.click();
+  }
+});
