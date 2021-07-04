@@ -19,14 +19,14 @@ const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 let property, mymap, marker;
 initMap();
 
-// prevent the form from submitting
-form.addEventListener("submit", function (e) {
+// Parse input, is it an ip address? Email? or domain name?
+btn.addEventListener("click", function (e) {
+  console.log("button clicked");
   e.preventDefault();
+  app()
 });
 
-
-// Parse input, is it an ip address? Email? or domain name?
-btn.addEventListener("click", function () {
+function app() {
   let input = search.value;
 
   // Store the property based on what it is for use in the Geo IP API later
@@ -45,7 +45,7 @@ btn.addEventListener("click", function () {
     callGeoIpAPI(input, property);
     search.value = "";
   }
-});
+}
 
 // initialize the map at the world view and locate user's location
 function initMap() {
