@@ -23,6 +23,11 @@ li {
   list-style-type: none;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+}
+
 hr {
   border: 0;
   border-color: white;
@@ -147,6 +152,11 @@ hr {
   }
 }
 
+.output__toggle {
+  background-color: gray;
+  width: 100%;
+}
+
 .map {
   flex-grow: 1;
 }
@@ -208,8 +218,6 @@ hr {
 .app__btn {
   background: #000000;
   padding: 1.28125rem 1.46875rem;
-  cursor: pointer;
-  border: none;
 }
 
 .output {
@@ -217,7 +225,7 @@ hr {
   box-shadow: 0px 3.125rem 3.125rem -1.5625rem rgba(0, 0, 0, 0.0983665);
   border-radius: 0.9375rem;
   max-width: 69.375rem;
-  padding: 1.625rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.625rem 1.5rem 0 1.5rem;
   line-height: calc(12/10);
 }
 
@@ -259,10 +267,20 @@ hr {
 }
 
 .output__flag {
-  width: 40px;
-  height: 20px;
+  width: 2.5rem;
+  height: 1.25rem;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.output__toggle {
+  height: 1.5rem;
+}
+
+@media screen and (max-width: 1013px) {
+  .output__toggle {
+    display: none;
+  }
 }
 
 .map {

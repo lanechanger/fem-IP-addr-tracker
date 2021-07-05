@@ -105,6 +105,11 @@
       margin-top: rem(13px);
     }
   }
+
+  &__toggle {
+    background-color: gray;
+    width: 100%;
+  }
 }
 
 .map {
