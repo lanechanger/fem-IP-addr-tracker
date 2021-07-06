@@ -277,7 +277,7 @@ hr {
   height: 1.5rem;
 }
 
-@media screen and (max-width: 1013px) {
+@media screen and (min-width: 1014px) {
   .output__toggle {
     display: none;
   }

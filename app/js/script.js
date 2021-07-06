@@ -6,6 +6,7 @@ import {
 const search = document.querySelector("#app-search");
 const btn = document.querySelector("#app-btn");
 const form = document.querySelector("#app-form");
+const main = document.querySelector("#out-main");
 const ipAddr = document.querySelector("#out-ip-addr");
 const loc = document.querySelector("#out-location");
 const flag = document.querySelector("#out-flag");
@@ -23,6 +24,13 @@ initMap();
 // button at the bottom of the text section to collapse the section
 toggleBtn.addEventListener("click", function (e) {
   console.log("toggle button clicked");
+  if (main.classList.contains("output-is-expanded")) {
+    main.classList.remove("output-is-expanded");
+    main.classList.add("output-is-collapsed");
+  } else {
+    main.classList.remove("output-is-collapsed");
+    main.classList.add("output-is-expanded");
+  }
 });
 
 // Parse input, is it an ip address? Email? or domain name?

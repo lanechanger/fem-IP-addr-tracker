@@ -97,7 +97,7 @@
   &__toggle {
     height: rem(24px);
 
-    @include breakpoint-down(small) {
+    @include breakpoint-up(medium) {
       display: none;
     }
   }
