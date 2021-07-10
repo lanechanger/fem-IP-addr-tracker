@@ -7,6 +7,7 @@ const search = document.querySelector("#app-search");
 const btn = document.querySelector("#app-btn");
 const form = document.querySelector("#app-form");
 const main = document.querySelector("#out-main");
+const list = document.querySelector("#out-list");
 const ipAddr = document.querySelector("#out-ip-addr");
 const loc = document.querySelector("#out-location");
 const flag = document.querySelector("#out-flag");
@@ -24,12 +25,12 @@ initMap();
 // button at the bottom of the text section to collapse the section
 toggleBtn.addEventListener("click", function (e) {
   console.log("toggle button clicked");
-  if (main.classList.contains("output-is-expanded")) {
-    main.classList.remove("output-is-expanded");
-    main.classList.add("output-is-collapsed");
+  if (list.classList.contains("output__list-is-collapsed")) {
+    list.classList.remove("output__list-is-collapsed");
+    toggleBtn.classList.remove("output__toggle-is-collapsed");
   } else {
-    main.classList.remove("output-is-collapsed");
-    main.classList.add("output-is-expanded");
+    list.classList.add("output__list-is-collapsed");
+    toggleBtn.classList.add("output__toggle-is-collapsed");
   }
 });
 

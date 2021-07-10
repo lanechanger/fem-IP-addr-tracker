@@ -60,15 +60,20 @@
 
   &__search {
     flex-grow: 1;
+    padding: rem(16px) 0 rem(16px) rem(24px);
   }
 
-  &__btn {}
+  &__btn {
+    padding: rem(20.5px) rem(23.5px);
+  }
 }
 
 .output {
+  padding: rem(26px) rem(24px) rem(10px) rem(24px);
   margin-top: rem(24px);
 
   @include breakpoint-up(medium) {
+    padding: rem(37px) rem(32px);
     margin-top: rem(48px);
   }
 
@@ -106,10 +111,7 @@
     }
   }
 
-  &__toggle {
-    background-color: gray;
-    width: 100%;
-  }
+  &__toggle {}
 }
 
 .map {

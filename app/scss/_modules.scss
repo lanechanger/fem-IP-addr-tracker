@@ -27,6 +27,7 @@
     box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
     border-radius: rem(15px);
     max-width: rem(550px);
+    max-height: rem(58px);
     width: 100%;
     overflow: hidden;
   }
@@ -34,7 +35,6 @@
   &__search {
     font-size: rem(18px);
     line-height: calc(21 / 18);
-    padding: rem(16px) 0 rem(16px) rem(24px);
 
     &::placeholder {
       color: $darkGray;
@@ -44,7 +44,6 @@
 
   &__btn {
     background: #000000;
-    padding: rem(20.5px) rem(23.5px);
   }
 }
 
@@ -53,12 +52,18 @@
   box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
   border-radius: rem(15px);
   max-width: rem(1110px);
-  padding: rem(26px) rem(24px) 0 rem(24px);
   line-height: calc(12/10);
 
   @include breakpoint-up(medium) {
-    padding: rem(37px) rem(22px);
     text-align: left;
+  }
+
+  &__list {
+    &-is-collapsed {
+      @include breakpoint-down(medium) {
+        display: none;
+      }
+    }
   }
 
   &__header {
@@ -95,11 +100,29 @@
   }
 
   &__toggle {
-    height: rem(24px);
+    @include breakpoint-down(medium) {
+      height: rem(24px);
+      width: 100%;
+      background-color: white;
+      position: relative;
+      display: block;
 
-    @include breakpoint-up(medium) {
-      display: none;
+      &:after {
+        content: '';
+        height: rem(7px);
+        background-image: url("/images/icon-arrow-down.svg");
+        background-repeat: no-repeat;
+        width: rem(10px);
+        position: absolute;
+        transform: rotate(180deg);
+      }
     }
+
+    &-is-collapsed:after {
+      transform: none;
+    }
+
+    display: none;
   }
 }
 
