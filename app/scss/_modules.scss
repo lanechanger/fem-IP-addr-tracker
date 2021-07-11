@@ -63,6 +63,10 @@
       @include breakpoint-down(medium) {
         display: none;
       }
+
+      &+.output__label {
+        display: inline-block;
+      }
     }
   }
 
@@ -80,7 +84,8 @@
     }
   }
 
-  &__text {
+  &__text,
+  &__label {
     font-weight: 500;
     font-size: rem(20px);
     letter-spacing: rem(-0.178571px);
@@ -99,10 +104,15 @@
     background-repeat: no-repeat;
   }
 
+  &__label {
+    display: none;
+
+  }
+
   &__toggle {
     @include breakpoint-down(medium) {
       height: rem(24px);
-      width: 100%;
+      width: rem(234.65px);
       background-color: white;
       position: relative;
       display: block;

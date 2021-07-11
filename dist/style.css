@@ -241,6 +241,10 @@ hr {
   }
 }
 
+.output__list-is-collapsed + .output__label {
+  display: inline-block;
+}
+
 .output__header {
   color: #969696;
   letter-spacing: 0.09115rem;
@@ -257,14 +261,14 @@ hr {
   }
 }
 
-.output__text {
+.output__text, .output__label {
   font-weight: 500;
   font-size: 1.25rem;
   letter-spacing: -0.01116rem;
 }
 
 @media screen and (min-width: 1014px) {
-  .output__text {
+  .output__text, .output__label {
     font-size: 1.625rem;
     line-height: calc(30 / 26);
     letter-spacing: -0.01451rem;
@@ -278,6 +282,10 @@ hr {
   background-repeat: no-repeat;
 }
 
+.output__label {
+  display: none;
+}
+
 .output__toggle {
   display: none;
 }
@@ -285,7 +293,7 @@ hr {
 @media screen and (max-width: 1023px) {
   .output__toggle {
     height: 1.5rem;
-    width: 100%;
+    width: 14.66563rem;
     background-color: white;
     position: relative;
     display: block;
