@@ -1,0 +1,17 @@
+.loader .loader__bar {
+  animation: loading 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+}
+
+@keyframes loading {
+
+  0%,
+  100% {
+    transform: translateX(-30px);
+  }
+
+  50% {
+    transform: translateX(30px);
+    background-color: #f5634a;
+    width: rem(25px);
+  }
+}

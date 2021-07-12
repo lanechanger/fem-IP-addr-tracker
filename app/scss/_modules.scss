@@ -64,7 +64,7 @@
         display: none;
       }
 
-      &+.output__label {
+      &~.output__label {
         display: inline-block;
       }
     }
@@ -85,7 +85,8 @@
   }
 
   &__text,
-  &__label {
+  &__label,
+  .loader {
     font-weight: 500;
     font-size: rem(20px);
     letter-spacing: rem(-0.178571px);
@@ -117,6 +118,15 @@
       position: relative;
       display: block;
 
+      &:hover .output__toggle:after {
+        transform: scale(1.2) rotate(180deg);
+      }
+
+      &:active {
+        height: rem(48px);
+        transform: scale(1.2);
+      }
+
       &:after {
         content: '';
         height: rem(7px);
@@ -135,6 +145,36 @@
     display: none;
   }
 }
+
+.loader {
+  width: rem(234.65px);
+  // don't show by default
+  display: none;
+
+  &-is-loading {
+    // show while loading
+    display: block;
+
+    &+.output__label {
+      // don't show label while loading
+      display: none;
+    }
+
+    &~.output__toggle {
+      // don't show button while loading
+      display: none;
+    }
+  }
+
+  &__bar {
+    width: rem(15px);
+    height: rem(6px);
+    border-radius: rem(2px);
+    background-color: #4b9cdb;
+    margin: auto;
+  }
+}
+
 
 .map {
   width: 100%;

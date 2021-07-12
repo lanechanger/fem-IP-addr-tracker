@@ -15,6 +15,7 @@ const timezone = document.querySelector("#out-timezone");
 const isp = document.querySelector("#out-isp");
 const toggleBtn = document.querySelector("#toggle-btn");
 const toggleLabel = document.querySelector("#toggle-label");
+const loader = document.querySelector("#loader");
 
 const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 const urlRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
@@ -38,8 +39,9 @@ toggleBtn.addEventListener("click", function (e) {
 // Parse input, is it an ip address? Email? or domain name?
 btn.addEventListener("click", function (e) {
   console.log("app button clicked");
+  loading();
   e.preventDefault();
-  app()
+  app();
 });
 
 function app() {
@@ -141,6 +143,7 @@ function parseGeoIpJSON(json) {
 function drawMap(lat, lng) {
   mymap.flyTo([lat, lng], 13);
   marker.setLatLng([lat, lng]);
+  loaded();
 }
 
 // Adding an event listener to the button to listen for the enter key to make this user friendlier
@@ -149,3 +152,18 @@ btn.addEventListener("keydown", function (event) {
     btn.click();
   }
 });
+
+// Turn loading div on while shutting the list off
+function loading() {
+  console.log("loading");
+  loader.classList.add("loader-is-loading");
+  list.classList.add("output__list-is-collapsed");
+  toggleBtn.classList.add("output__toggle-is-collapsed");
+}
+
+// Turn loading div off while showing the list again
+function loaded() {
+  console.log("loaded");
+  loader.classList.remove("loader-is-loading");
+  list.classList.remove("output__list-is-collapsed");
+}
