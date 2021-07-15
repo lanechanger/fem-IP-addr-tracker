@@ -166,4 +166,5 @@ function loaded() {
   console.log("loaded");
   loader.classList.remove("loader-is-loading");
   list.classList.remove("output__list-is-collapsed");
+  toggleBtn.classList.remove("output__toggle-is-collapsed");
 }

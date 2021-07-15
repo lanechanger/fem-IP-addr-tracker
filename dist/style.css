@@ -145,7 +145,7 @@ hr {
 @media screen and (max-width: 1013px) {
   .output__flag {
     margin: auto;
-    margin-bottom: -10px;
+    margin-bottom: -0.625rem;
   }
 }
 
@@ -157,6 +157,10 @@ hr {
   .output__text {
     margin-top: 0.8125rem;
   }
+}
+
+.output__toggle-is-collapsed {
+  margin-top: 0.625rem;
 }
 
 .loader {
@@ -294,6 +298,8 @@ hr {
 
 .output__label {
   display: none;
+  position: relative;
+  z-index: 2;
 }
 
 .output__toggle {
@@ -312,7 +318,8 @@ hr {
     transform: scale(1.2) rotate(180deg);
   }
   .output__toggle:active {
-    height: 3rem;
+    padding-top: 1.25rem;
+    margin-bottom: 1.25rem;
     transform: scale(1.2);
   }
   .output__toggle:after {
@@ -328,6 +335,12 @@ hr {
 
 .output__toggle-is-collapsed:after {
   transform: none;
+}
+
+.output__toggle-is-collapsed:active {
+  padding-top: 0;
+  margin-bottom: 0;
+  transform: scale(1.2);
 }
 
 .loader {
