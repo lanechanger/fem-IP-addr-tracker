@@ -77,6 +77,13 @@
     margin-top: rem(48px);
   }
 
+  &__list-is-loading {
+    &+.loader {
+      padding-top: rem(10px);
+      padding-bottom: rem(10px);
+    }
+  }
+
   &__section {
     min-width: rem(200px);
 

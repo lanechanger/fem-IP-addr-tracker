@@ -121,6 +121,11 @@ hr {
   }
 }
 
+.output__list-is-loading + .loader {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
 .output__section {
   min-width: 12.5rem;
 }
@@ -239,6 +244,7 @@ hr {
   border-radius: 0.9375rem;
   max-width: 69.375rem;
   line-height: calc(12/10);
+  position: relative;
 }
 
 @media screen and (min-width: 1014px) {
@@ -255,6 +261,22 @@ hr {
 
 .output__list-is-collapsed ~ .output__label {
   display: inline-block;
+}
+
+@media screen and (min-width: 1014px) {
+  .output__list-is-loading {
+    filter: blur(4px);
+  }
+  .output__list-is-loading + .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: white;
+    box-shadow: 0.625rem 0.625rem 1.625rem 0px rgba(0, 0, 0, 0.75);
+    text-align: center;
+    border-radius: 0.625rem;
+  }
 }
 
 .output__header {

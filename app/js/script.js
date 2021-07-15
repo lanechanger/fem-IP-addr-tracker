@@ -158,6 +158,7 @@ function loading() {
   console.log("loading");
   loader.classList.add("loader-is-loading");
   list.classList.add("output__list-is-collapsed");
+  list.classList.add("output__list-is-loading");
   toggleBtn.classList.add("output__toggle-is-collapsed");
 }
 
@@ -166,5 +167,6 @@ function loaded() {
   console.log("loaded");
   loader.classList.remove("loader-is-loading");
   list.classList.remove("output__list-is-collapsed");
+  list.classList.remove("output__list-is-loading");
   toggleBtn.classList.remove("output__toggle-is-collapsed");
 }

@@ -53,6 +53,7 @@
   border-radius: rem(15px);
   max-width: rem(1110px);
   line-height: calc(12/10);
+  position: relative;
 
   @include breakpoint-up(medium) {
     text-align: left;
@@ -66,6 +67,23 @@
 
       &~.output__label {
         display: inline-block;
+      }
+    }
+
+    &-is-loading {
+      @include breakpoint-up(medium) {
+        filter: blur(4px);
+
+        &+.loader {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          background-color: white;
+          box-shadow: rem(10px) rem(10px) rem(26px) 0px rgba(0, 0, 0, 0.75);
+          text-align: center;
+          border-radius: rem(10px);
+        }
       }
     }
   }
