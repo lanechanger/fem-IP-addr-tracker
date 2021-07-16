@@ -1,7 +1,7 @@
 .app {
   background: url("/images/pattern-bg.png") no-repeat right -590px top/cover;
-  width: 100%;
   height: rem(300px);
+  width: 100%;
   z-index: 2;
 
   @include breakpoint-up(medium) {
@@ -10,11 +10,11 @@
   }
 
   &__header {
-    font-weight: 500;
-    font-size: rem(26px);
-    line-height: calc(30 / 26);
-    letter-spacing: rem(-0.232143px);
     color: #FFFFFF;
+    font-size: rem(26px);
+    font-weight: 500;
+    letter-spacing: rem(-0.232143px);
+    line-height: calc(30 / 26);
 
     @include breakpoint-up(medium) {
       font-size: rem(32px);
@@ -24,12 +24,12 @@
 
   &__form {
     background-color: #fff;
-    box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
     border-radius: rem(15px);
-    max-width: rem(550px);
+    box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
     max-height: rem(58px);
-    width: 100%;
+    max-width: rem(550px);
     overflow: hidden;
+    width: 100%;
   }
 
   &__search {
@@ -49,10 +49,10 @@
 
 .output {
   background-color: #fff;
-  box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
   border-radius: rem(15px);
-  max-width: rem(1110px);
+  box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
   line-height: calc(12/10);
+  max-width: rem(1110px);
   position: relative;
 
   @include breakpoint-up(medium) {
@@ -75,14 +75,14 @@
         filter: blur(4px);
 
         &+.loader {
-          position: absolute;
+          background-color: white;
+          border-radius: rem(10px);
+          box-shadow: rem(10px) rem(10px) rem(26px) 0px rgba(0, 0, 0, 0.75);
           left: 50%;
+          position: absolute;
+          text-align: center;
           top: 50%;
           transform: translateX(-50%) translateY(-50%);
-          background-color: white;
-          box-shadow: rem(10px) rem(10px) rem(26px) 0px rgba(0, 0, 0, 0.75);
-          text-align: center;
-          border-radius: rem(10px);
         }
       }
     }
@@ -90,37 +90,37 @@
 
   &__header {
     color: $darkGray;
-    letter-spacing: rem(1.45833px);
-    text-transform: uppercase;
     font-size: rem(10px);
     font-weight: 700;
+    letter-spacing: rem(1.45833px);
+    text-transform: uppercase;
 
     @include breakpoint-up(medium) {
       font-size: rem(12px);
-      line-height: calc(14 / 12);
       letter-spacing: rem(1.75px);
+      line-height: calc(14 / 12);
     }
   }
 
   &__text,
   &__label,
   .loader {
-    font-weight: 500;
     font-size: rem(20px);
+    font-weight: 500;
     letter-spacing: rem(-0.178571px);
 
     @include breakpoint-up(medium) {
       font-size: rem(26px);
-      line-height: calc(30 / 26);
       letter-spacing: rem(-0.232143px);
+      line-height: calc(30 / 26);
     }
   }
 
   &__flag {
-    width: rem(40px);
-    height: rem(20px);
-    background-size: contain;
     background-repeat: no-repeat;
+    background-size: contain;
+    height: rem(20px);
+    width: rem(40px);
   }
 
   &__label {
@@ -131,30 +131,30 @@
 
   &__toggle {
     @include breakpoint-down(medium) {
-      height: rem(24px);
-      width: rem(234.65px);
       background-color: white;
-      position: relative;
       display: block;
+      height: rem(24px);
+      position: relative;
+      width: rem(234.65px);
 
       &:hover .output__toggle:after {
         transform: scale(1.2) rotate(180deg);
       }
 
       &:active {
-        padding-top: rem(20px);
         margin-bottom: rem(20px);
+        padding-top: rem(20px);
         transform: scale(1.2);
       }
 
       &:after {
-        content: '';
-        height: rem(7px);
         background-image: url("/images/icon-arrow-down.svg");
         background-repeat: no-repeat;
-        width: rem(10px);
+        content: '';
+        height: rem(7px);
         position: absolute;
         transform: rotate(180deg);
+        width: rem(10px);
       }
     }
 
@@ -164,8 +164,8 @@
       }
 
       &:active {
-        padding-top: 0;
         margin-bottom: 0;
+        padding-top: 0;
         transform: scale(1.2);
       }
     }
@@ -176,9 +176,9 @@
 }
 
 .loader {
-  width: rem(234.65px);
   // don't show by default
   display: none;
+  width: rem(234.65px);
 
   &-is-loading {
     // show while loading
@@ -196,12 +196,12 @@
   }
 
   &__bar {
-    width: rem(15px);
-    height: rem(6px);
-    border-radius: rem(2px);
     background-color: #4b9cdb;
+    border-radius: rem(2px);
+    height: rem(6px);
     margin-left: auto;
     margin-right: auto;
+    width: rem(15px);
   }
 }
 
@@ -213,8 +213,8 @@
 .attribution {
   font-size: rem(11px);
   text-align: center;
-  z-index: 1;
   width: 100%;
+  z-index: 1;
 
   & a {
     color: hsl(228, 45%, 44%);
