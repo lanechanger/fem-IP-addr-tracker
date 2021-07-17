@@ -44,6 +44,15 @@
 
   &__btn {
     background: #000000;
+    transition: all 500ms ease-in-out;
+
+    &:hover {
+      box-shadow: inset rem(-35px) 0 0 0 gray, inset rem(35px) 0 0 0 gray;
+
+      & svg {
+        animation: hovering 2s linear infinite;
+      }
+    }
   }
 }
 
@@ -202,6 +211,10 @@
     margin-left: auto;
     margin-right: auto;
     width: rem(15px);
+  }
+
+  & .loader__bar {
+    animation: loading 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
   }
 }
 

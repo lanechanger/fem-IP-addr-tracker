@@ -1,7 +1,3 @@
-.loader .loader__bar {
-  animation: loading 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
-}
-
 @keyframes loading {
 
   0%,
@@ -13,5 +9,22 @@
     background-color: #f5634a;
     transform: translateX(30px);
     width: rem(25px);
+  }
+}
+
+.app__btn:hover svg {
+  animation: hovering 2s linear infinite;
+}
+
+
+@keyframes hovering {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
   }
 }
