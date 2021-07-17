@@ -168,10 +168,6 @@ hr {
   margin-top: 0.625rem;
 }
 
-.loader {
-  margin-bottom: 1rem;
-}
-
 .loader__bar {
   margin-top: 0.5rem;
 }
@@ -183,6 +179,150 @@ hr {
 .attribution {
   bottom: 2rem;
   position: fixed;
+}
+
+.output {
+  background-color: #fff;
+  border-radius: 0.9375rem;
+  box-shadow: 0px 3.125rem 3.125rem -1.5625rem rgba(0, 0, 0, 0.0983665);
+  line-height: calc(12/10);
+  max-width: 69.375rem;
+  position: relative;
+}
+
+@media screen and (min-width: 1014px) {
+  .output {
+    text-align: left;
+  }
+}
+
+.output__list {
+  transition: all 300ms ease-in-out;
+  transform-origin: top;
+  transform: scale(1);
+  opacity: 1;
+  max-height: 31.25rem;
+}
+
+@media screen and (max-width: 1023px) {
+  .output__list-is-collapsed {
+    opacity: 0;
+    transform: scale(0);
+    max-height: 0rem;
+  }
+}
+
+.output__list-is-collapsed ~ .output__label {
+  height: 1.5rem;
+  transform: scale(1);
+  opacity: 1;
+}
+
+@media screen and (min-width: 1014px) {
+  .output__list-is-loading {
+    filter: blur(4px);
+  }
+  .output__list-is-loading + .loader {
+    background-color: white;
+    border-radius: 0.625rem;
+    box-shadow: 0.625rem 0.625rem 1.625rem 0px rgba(0, 0, 0, 0.75);
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.output__header {
+  color: #969696;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.09115rem;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1014px) {
+  .output__header {
+    font-size: 0.75rem;
+    letter-spacing: 0.10938rem;
+    line-height: calc(14 / 12);
+  }
+}
+
+.output__text, .output__label,
+.output .loader {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01116rem;
+}
+
+@media screen and (min-width: 1014px) {
+  .output__text, .output__label,
+  .output .loader {
+    font-size: 1.625rem;
+    letter-spacing: -0.01451rem;
+    line-height: calc(30 / 26);
+  }
+}
+
+.output__flag {
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 1.25rem;
+  width: 2.5rem;
+}
+
+.output__label {
+  display: inline-block;
+  transform: scale(0);
+  height: 0;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+  transition: all 300ms ease-in-out;
+}
+
+.output__toggle {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .output__toggle {
+    background-color: white;
+    display: block;
+    height: 1.5rem;
+    position: relative;
+    width: 14.66563rem;
+    transition: all 150ms ease-in-out;
+  }
+  .output__toggle:hover .output__toggle:after {
+    transform: scale(1.2) rotate(180deg);
+  }
+  .output__toggle:active {
+    margin-bottom: 1.25rem;
+    padding-top: 1.25rem;
+    transform: scale(1.2);
+  }
+  .output__toggle:after {
+    background-image: url("/images/icon-arrow-down.svg");
+    background-repeat: no-repeat;
+    content: '';
+    height: 0.4375rem;
+    position: absolute;
+    transform: rotate(180deg);
+    width: 0.625rem;
+  }
+}
+
+.output__toggle-is-collapsed:after {
+  transform: none;
+}
+
+.output__toggle-is-collapsed:active {
+  margin-bottom: 0;
+  padding-top: 0;
+  transform: scale(1.2);
 }
 
 .app {
@@ -247,148 +387,33 @@ hr {
   animation: hovering 2s linear infinite;
 }
 
-.output {
-  background-color: #fff;
-  border-radius: 0.9375rem;
-  box-shadow: 0px 3.125rem 3.125rem -1.5625rem rgba(0, 0, 0, 0.0983665);
-  line-height: calc(12/10);
-  max-width: 69.375rem;
-  position: relative;
-}
-
-@media screen and (min-width: 1014px) {
-  .output {
-    text-align: left;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .output__list-is-collapsed {
-    display: none;
-  }
-}
-
-.output__list-is-collapsed ~ .output__label {
-  display: inline-block;
-}
-
-@media screen and (min-width: 1014px) {
-  .output__list-is-loading {
-    filter: blur(4px);
-  }
-  .output__list-is-loading + .loader {
-    background-color: white;
-    border-radius: 0.625rem;
-    box-shadow: 0.625rem 0.625rem 1.625rem 0px rgba(0, 0, 0, 0.75);
-    left: 50%;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-}
-
-.output__header {
-  color: #969696;
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.09115rem;
-  text-transform: uppercase;
-}
-
-@media screen and (min-width: 1014px) {
-  .output__header {
-    font-size: 0.75rem;
-    letter-spacing: 0.10938rem;
-    line-height: calc(14 / 12);
-  }
-}
-
-.output__text, .output__label,
-.output .loader {
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: -0.01116rem;
-}
-
-@media screen and (min-width: 1014px) {
-  .output__text, .output__label,
-  .output .loader {
-    font-size: 1.625rem;
-    letter-spacing: -0.01451rem;
-    line-height: calc(30 / 26);
-  }
-}
-
-.output__flag {
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 1.25rem;
-  width: 2.5rem;
-}
-
-.output__label {
-  display: none;
-  position: relative;
-  z-index: 2;
-}
-
-.output__toggle {
-  display: none;
-}
-
-@media screen and (max-width: 1023px) {
-  .output__toggle {
-    background-color: white;
-    display: block;
-    height: 1.5rem;
-    position: relative;
-    width: 14.66563rem;
-  }
-  .output__toggle:hover .output__toggle:after {
-    transform: scale(1.2) rotate(180deg);
-  }
-  .output__toggle:active {
-    margin-bottom: 1.25rem;
-    padding-top: 1.25rem;
-    transform: scale(1.2);
-  }
-  .output__toggle:after {
-    background-image: url("/images/icon-arrow-down.svg");
-    background-repeat: no-repeat;
-    content: '';
-    height: 0.4375rem;
-    position: absolute;
-    transform: rotate(180deg);
-    width: 0.625rem;
-  }
-}
-
-.output__toggle-is-collapsed:after {
-  transform: none;
-}
-
-.output__toggle-is-collapsed:active {
-  margin-bottom: 0;
-  padding-top: 0;
-  transform: scale(1.2);
-}
-
 .loader {
-  display: none;
+  transition: all 300ms ease-in-out;
+  transform: scale(0);
+  opacity: 0;
+  height: 0;
+  margin-bottom: 0;
   width: 14.66563rem;
 }
 
 .loader-is-loading {
-  display: block;
+  transform: scale(1);
+  opacity: 1;
+  height: 1.875rem;
+  margin-bottom: 1rem;
 }
 
 .loader-is-loading + .output__label {
-  display: none;
+  transform: scale(0);
+  opacity: 0;
+  height: 0;
 }
 
 .loader-is-loading ~ .output__toggle {
-  display: none;
+  transform: scale(0);
+  opacity: 0;
+  height: 0;
+  margin-bottom: 0;
 }
 
 .loader__bar {

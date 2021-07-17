@@ -1,0 +1,142 @@
+.output {
+  background-color: #fff;
+  border-radius: rem(15px);
+  box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
+  line-height: calc(12/10);
+  max-width: rem(1110px);
+  position: relative;
+
+  @include breakpoint-up(medium) {
+    text-align: left;
+  }
+
+  &__list {
+    transition: all 300ms ease-in-out;
+    transform-origin: top;
+    transform: scale(1);
+    opacity: 1;
+    max-height: rem(500px);
+
+    &-is-collapsed {
+      @include breakpoint-down(medium) {
+        opacity: 0;
+        transform: scale(0);
+        max-height: rem(0);
+      }
+
+      &~.output__label {
+        height: rem(24px);
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    &-is-loading {
+      @include breakpoint-up(medium) {
+        filter: blur(4px);
+
+        &+.loader {
+          background-color: white;
+          border-radius: rem(10px);
+          box-shadow: rem(10px) rem(10px) rem(26px) 0px rgba(0, 0, 0, 0.75);
+          left: 50%;
+          position: absolute;
+          text-align: center;
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
+      }
+    }
+  }
+
+  &__header {
+    color: $darkGray;
+    font-size: rem(10px);
+    font-weight: 700;
+    letter-spacing: rem(1.45833px);
+    text-transform: uppercase;
+
+    @include breakpoint-up(medium) {
+      font-size: rem(12px);
+      letter-spacing: rem(1.75px);
+      line-height: calc(14 / 12);
+    }
+  }
+
+  &__text,
+  &__label,
+  .loader {
+    font-size: rem(20px);
+    font-weight: 500;
+    letter-spacing: rem(-0.178571px);
+
+    @include breakpoint-up(medium) {
+      font-size: rem(26px);
+      letter-spacing: rem(-0.232143px);
+      line-height: calc(30 / 26);
+    }
+  }
+
+  &__flag {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: rem(20px);
+    width: rem(40px);
+  }
+
+  &__label {
+    display: inline-block;
+    transform: scale(0);
+    height: 0;
+    opacity: 0;
+    position: relative;
+    z-index: 2;
+    transition: all 300ms ease-in-out;
+  }
+
+  &__toggle {
+    @include breakpoint-down(medium) {
+      background-color: white;
+      display: block;
+      height: rem(24px);
+      position: relative;
+      width: rem(234.65px);
+      transition: all 150ms ease-in-out;
+
+      &:hover .output__toggle:after {
+        transform: scale(1.2) rotate(180deg);
+      }
+
+      &:active {
+        margin-bottom: rem(20px);
+        padding-top: rem(20px);
+        transform: scale(1.2);
+      }
+
+      &:after {
+        background-image: url("/images/icon-arrow-down.svg");
+        background-repeat: no-repeat;
+        content: '';
+        height: rem(7px);
+        position: absolute;
+        transform: rotate(180deg);
+        width: rem(10px);
+      }
+    }
+
+    &-is-collapsed {
+      &:after {
+        transform: none;
+      }
+
+      &:active {
+        margin-bottom: 0;
+        padding-top: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    // don't display for larger viewports
+    display: none;
+  }
+}
