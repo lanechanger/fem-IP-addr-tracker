@@ -197,25 +197,25 @@ hr {
 }
 
 .output__list {
-  transition: all 300ms ease-in-out;
-  transform-origin: top;
-  transform: scale(1);
-  opacity: 1;
   max-height: 31.25rem;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: top;
+  transition: all 300ms ease-in-out;
 }
 
 @media screen and (max-width: 1023px) {
   .output__list-is-collapsed {
+    max-height: 0rem;
     opacity: 0;
     transform: scale(0);
-    max-height: 0rem;
   }
 }
 
 .output__list-is-collapsed ~ .output__label {
   height: 1.5rem;
-  transform: scale(1);
   opacity: 1;
+  transform: scale(1);
 }
 
 @media screen and (min-width: 1014px) {
@@ -226,6 +226,7 @@ hr {
     background-color: white;
     border-radius: 0.625rem;
     box-shadow: 0.625rem 0.625rem 1.625rem 0px rgba(0, 0, 0, 0.75);
+    height: 4.375rem;
     left: 50%;
     position: absolute;
     text-align: center;
@@ -275,44 +276,47 @@ hr {
 
 .output__label {
   display: inline-block;
-  transform: scale(0);
   height: 0;
   opacity: 0;
   position: relative;
-  z-index: 2;
+  transform: scale(0);
   transition: all 300ms ease-in-out;
+  z-index: 2;
+}
+
+@media screen and (min-width: 1014px) {
+  .output__label {
+    display: none;
+  }
 }
 
 .output__toggle {
-  display: none;
+  background-color: white;
+  display: block;
+  height: 1.5rem;
+  position: relative;
+  transition: all 150ms ease-in-out;
+  width: 100%;
 }
 
-@media screen and (max-width: 1023px) {
-  .output__toggle {
-    background-color: white;
-    display: block;
-    height: 1.5rem;
-    position: relative;
-    width: 14.66563rem;
-    transition: all 150ms ease-in-out;
-  }
-  .output__toggle:hover .output__toggle:after {
-    transform: scale(1.2) rotate(180deg);
-  }
-  .output__toggle:active {
-    margin-bottom: 1.25rem;
-    padding-top: 1.25rem;
-    transform: scale(1.2);
-  }
-  .output__toggle:after {
-    background-image: url("/images/icon-arrow-down.svg");
-    background-repeat: no-repeat;
-    content: '';
-    height: 0.4375rem;
-    position: absolute;
-    transform: rotate(180deg);
-    width: 0.625rem;
-  }
+.output__toggle:hover .output__toggle:after {
+  transform: scale(1.2) rotate(180deg);
+}
+
+.output__toggle:active {
+  margin-bottom: 1.25rem;
+  padding-top: 1.25rem;
+  transform: scale(1.2);
+}
+
+.output__toggle:after {
+  background-image: url("/images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  content: '';
+  height: 0.4375rem;
+  position: absolute;
+  transform: rotate(180deg);
+  width: 0.625rem;
 }
 
 .output__toggle-is-collapsed:after {
@@ -323,6 +327,12 @@ hr {
   margin-bottom: 0;
   padding-top: 0;
   transform: scale(1.2);
+}
+
+@media screen and (min-width: 1014px) {
+  .output__toggle {
+    display: none;
+  }
 }
 
 .app {
@@ -388,32 +398,34 @@ hr {
 }
 
 .loader {
-  transition: all 300ms ease-in-out;
-  transform: scale(0);
-  opacity: 0;
   height: 0;
   margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 300ms ease-in-out;
   width: 14.66563rem;
 }
 
 .loader-is-loading {
-  transform: scale(1);
-  opacity: 1;
   height: 1.875rem;
   margin-bottom: 1rem;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .loader-is-loading + .output__label {
-  transform: scale(0);
-  opacity: 0;
   height: 0;
+  opacity: 0;
+  transform: scale(0);
 }
 
 .loader-is-loading ~ .output__toggle {
-  transform: scale(0);
-  opacity: 0;
   height: 0;
   margin-bottom: 0;
+  opacity: 0;
+  transform: scale(0);
 }
 
 .loader__bar {
