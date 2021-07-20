@@ -1,0 +1,27 @@
+{
+  "name": "fem-ip-addr-tracker",
+  "version": "1.0.0",
+  "description": "![Design preview for the IP address tracker coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanechanger/fem-IP-addr-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lanechanger/fem-IP-addr-tracker/issues"
+  },
+  "homepage": "https://github.com/lanechanger/fem-IP-addr-tracker#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.12",
+    "webpack": "^5.45.1"
+  }
+}

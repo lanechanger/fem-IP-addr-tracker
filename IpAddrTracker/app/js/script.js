@@ -1,8 +1,3 @@
-import {
-  GEO_IP_KEY as geoIpKey,
-  MAP_BOX_KEY as mapBoxKey
-} from "./apikey.js";
-
 const search = document.querySelector("#app-search");
 const btn = document.querySelector("#app-btn");
 const form = document.querySelector("#app-form");
@@ -66,7 +61,7 @@ function app() {
 }
 
 // initialize the map at the world view and locate user's location
-function initMap() {
+async function initMap() {
   mymap = L.map('mapid', {
     minZoom: 1
   })
@@ -83,35 +78,40 @@ function initMap() {
 
   marker.addTo(mymap);
 
-  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: mapBoxKey
-  }).addTo(mymap);
+  const mapBoxOptions = await callMapBoxAPI();
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', mapBoxOptions).addTo(mymap);
 
   fetch("https://api.ipify.org/?format=json")
     .then(response => response.json())
     .then(json => (callGeoIpAPI(json.ip, "ipAddress")));
 }
 
-// Make the call to Geo IP like below
-// https://geo.ipify.org/api/v1?apiKey=at_5Enpp3MpASTFXAGtCFSh5GF2HEXan&ipAddress=192.212.174.101
-// API doc: https://geo.ipify.org/docs
-//    Use parameters ipAddress, domain, or email depending on what's entered
+// pass the input found along with the property to the server to make the api call there
+// It's going to make the call to Geo IP then take the lat and long found there and call the other APIs
 async function callGeoIpAPI(input, property) {
-  let url = `https://geo.ipify.org/api/v1?apiKey=${geoIpKey}&${property}=${input}`;
-  console.log(`calling Geo IP API with property ${property} and value ${input} at url: ${url}`);
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
 
-  try {
-    let result = await fetch(url);
-    let jsonResult = await result.json();
-    parseGeoIpJSON(jsonResult);
-  } catch (error) {
-    console.log(error);
-  }
+  const result = await fetch(`/geoIpApi/${input}/${property}`, options);
+  const jsonResult = await result.json();
+  parseGeoIpJSON(jsonResult);
+}
+
+async function callMapBoxAPI() {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  const result = await fetch('/mapBoxApi', options);
+  const jsonResult = await result.json();
+  return jsonResult;
 }
 
 // Parse output JSON that comes back and update output and map components
@@ -120,6 +120,7 @@ async function callGeoIpAPI(input, property) {
 //    property location>timezone --> timezone
 //    property "isp" --> ISP
 // At the same time, call country REST API to get their flag
+// This API I'll leave on the client end as there are no authentications involved
 function parseGeoIpJSON(json) {
   console.log(json);
 
@@ -166,7 +167,7 @@ function loading() {
 function loaded() {
   console.log("loaded");
   loader.classList.remove("loader-is-loading");
-  list.classList.remove("output__list-is-collapsed");
   list.classList.remove("output__list-is-loading");
+  list.classList.remove("output__list-is-collapsed");
   toggleBtn.classList.remove("output__toggle-is-collapsed");
 }

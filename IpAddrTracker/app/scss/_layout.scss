@@ -47,8 +47,6 @@
 }
 
 .app {
-  &__header {}
-
   &__form {
     flex: 1 0 rem(58px);
     margin-top: rem(29px);
@@ -107,8 +105,6 @@
       margin-bottom: rem(-10px);
     }
   }
-
-  &__header {}
 
   &__text {
     margin-top: rem(7px);
