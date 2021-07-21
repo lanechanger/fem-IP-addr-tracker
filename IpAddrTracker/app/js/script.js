@@ -34,6 +34,11 @@ toggleBtn.addEventListener("click", function (e) {
 // Parse input, is it an ip address? Email? or domain name?
 btn.addEventListener("click", function (e) {
   console.log("app button clicked");
+
+  // remove focus so mobile keyboard doesn't block the bottom part where the map is
+  if (document.activeElement instanceof HTMLElement)
+    document.activeElement.blur();
+
   loading();
   e.preventDefault();
   app();
@@ -62,6 +67,8 @@ function app() {
 
 // initialize the map at the world view and locate user's location
 async function initMap() {
+  loading();
+
   mymap = L.map('mapid', {
     minZoom: 1
   })
