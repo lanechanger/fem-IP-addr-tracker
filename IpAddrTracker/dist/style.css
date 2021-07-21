@@ -448,6 +448,7 @@ hr {
 
 .map {
   width: 100%;
+  min-height: 37.5rem;
   z-index: 0;
 }
 
