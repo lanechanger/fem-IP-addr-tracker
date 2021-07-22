@@ -36,7 +36,7 @@ app.post('/geoIpApi/:input/:property', async (req, res) => {
 });
 
 // This is really to just abstract the map box api key in here away from the client code
-app.post('/mapBoxApi', (req, res) => {
+app.get('/mapBoxApi', (req, res) => {
   console.log("request received: mapBoxApi");
   res.json({
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
