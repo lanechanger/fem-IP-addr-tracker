@@ -31,20 +31,11 @@ toggleBtn.addEventListener("click", function (e) {
   }
 });
 
-// Parse input, is it an ip address? Email? or domain name?
+// Main button that will throw
 btn.addEventListener("click", function (e) {
   console.log("app button clicked");
-
-  // remove focus so mobile keyboard doesn't block the bottom part where the map is
-  if (document.activeElement instanceof HTMLElement)
-    document.activeElement.blur();
-
-  loading();
   e.preventDefault();
-  app();
-});
 
-function app() {
   let input = search.value;
 
   // Store the property based on what it is for use in the Geo IP API later
@@ -57,13 +48,23 @@ function app() {
   } else {
     // error
     property = "";
+    search.value = "";
+    form.classList.add("error");
+    setTimeout(() => form.classList.remove("error"), 200);
   }
 
+  // If property checks out...
   if (property) {
+    // remove focus so mobile keyboard doesn't block the bottom part where the map is
+    if (document.activeElement instanceof HTMLElement)
+      document.activeElement.blur();
+
+    loading();
+
     callGeoIpAPI(input, property);
     search.value = "";
   }
-}
+});
 
 // initialize the map at the world view and locate user's location
 async function initMap() {
@@ -109,14 +110,14 @@ async function callGeoIpAPI(input, property) {
 }
 
 async function callMapBoxAPI() {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
+  // const options = {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // };
 
-  const result = await fetch('/mapBoxApi', options);
+  const result = await fetch('/mapBoxApi');
   const jsonResult = await result.json();
   return jsonResult;
 }
