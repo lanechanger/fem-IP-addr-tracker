@@ -1,8 +1,14 @@
 .app {
-  background: url("/images/pattern-bg.png") no-repeat right -590px top/cover;
+  background: url("/images/pattern-bg.png") no-repeat right rem(-590px) top/cover;
   height: rem(300px);
   width: 100%;
   z-index: 2;
+
+  @include landscape(small) {
+    background-position: top rem(-16px) right 0;
+    height: rem(110px);
+    background-size: auto;
+  }
 
   @include breakpoint-up(medium) {
     background-position: center;
@@ -15,6 +21,8 @@
     font-weight: 500;
     letter-spacing: rem(-0.232143px);
     line-height: calc(30 / 26);
+
+    @include landscape(small) {}
 
     @include breakpoint-up(medium) {
       font-size: rem(32px);
@@ -109,7 +117,6 @@
 
 .map {
   width: 100%;
-  min-height: rem(600px);
   z-index: 0;
 }
 

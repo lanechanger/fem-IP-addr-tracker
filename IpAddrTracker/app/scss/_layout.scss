@@ -2,6 +2,11 @@
   &site-container {
     padding: rem(26px) rem(24px) 0 rem(24px);
 
+
+    @include landscape(small) {
+      padding-top: rem(5px);
+    }
+
     @include breakpoint-up(medium) {
       padding-top: rem(33px);
     }
@@ -50,6 +55,10 @@
   &__form {
     flex: 1 0 rem(58px);
     margin-top: rem(29px);
+
+    @include landscape(small) {
+      margin-top: rem(10px);
+    }
 
     @include breakpoint-up(medium) {
       margin-top: rem(31px);

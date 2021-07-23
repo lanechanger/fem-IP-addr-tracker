@@ -13,6 +13,12 @@ $breakpoints-down: (small: 1013px, medium: 1023px, large: 1399px);
   }
 }
 
+@mixin landscape($size) {
+  @media screen and (max-height: 550px) and (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
 @function stripUnit($value) {
   @return $value / ($value * 0 + 1);
 }

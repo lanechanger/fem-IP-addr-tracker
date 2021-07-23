@@ -45,6 +45,12 @@ hr {
   padding: 1.625rem 1.5rem 0 1.5rem;
 }
 
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .l-site-container {
+    padding-top: 0.3125rem;
+  }
+}
+
 @media screen and (min-width: 1014px) {
   .l-site-container {
     padding-top: 2.0625rem;
@@ -92,6 +98,12 @@ hr {
 .app__form {
   flex: 1 0 3.625rem;
   margin-top: 1.8125rem;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .app__form {
+    margin-top: 0.625rem;
+  }
 }
 
 @media screen and (min-width: 1014px) {
@@ -336,10 +348,18 @@ hr {
 }
 
 .app {
-  background: url("/images/pattern-bg.png") no-repeat right -590px top/cover;
+  background: url("/images/pattern-bg.png") no-repeat right -36.875rem top/cover;
   height: 18.75rem;
   width: 100%;
   z-index: 2;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .app {
+    background-position: top -1rem right 0;
+    height: 6.875rem;
+    background-size: auto;
+  }
 }
 
 @media screen and (min-width: 1014px) {
@@ -448,7 +468,6 @@ hr {
 
 .map {
   width: 100%;
-  min-height: 37.5rem;
   z-index: 0;
 }
 
