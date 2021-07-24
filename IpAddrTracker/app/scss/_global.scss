@@ -33,6 +33,8 @@ hr {
   border-color: white;
 
   @include breakpoint-up(medium) {
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
     border-left: rem(1px) solid #d9d9d9;
     height: rem(75px);

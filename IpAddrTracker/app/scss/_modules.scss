@@ -44,6 +44,21 @@
     font-size: rem(18px);
     line-height: calc(21 / 18);
 
+    &::-webkit-input-placeholder {
+      color: $darkGray;
+      font-size: unquote("clamp(14px, 14px + (((100vw - 375px) / 55) * 4), 18px)");
+    }
+
+    &::-moz-placeholder {
+      color: $darkGray;
+      font-size: unquote("clamp(14px, 14px + (((100vw - 375px) / 55) * 4), 18px)");
+    }
+
+    &:-ms-input-placeholder {
+      color: $darkGray;
+      font-size: unquote("clamp(14px, 14px + (((100vw - 375px) / 55) * 4), 18px)");
+    }
+
     &::placeholder {
       color: $darkGray;
       font-size: unquote("clamp(14px, 14px + (((100vw - 375px) / 55) * 4), 18px)");
@@ -52,12 +67,14 @@
 
   &__btn {
     background: #000000;
+    -webkit-transition: all 500ms ease-in-out;
     transition: all 500ms ease-in-out;
 
     &:hover {
       box-shadow: inset rem(-35px) 0 0 0 gray, inset rem(35px) 0 0 0 gray;
 
       & svg {
+        -webkit-animation: hovering 2s linear infinite;
         animation: hovering 2s linear infinite;
       }
     }
@@ -89,6 +106,7 @@
       // don't show label while loading
       height: 0;
       opacity: 0;
+      -webkit-transform: scale(0);
       transform: scale(0);
     }
 
@@ -97,6 +115,7 @@
       height: 0;
       margin-bottom: 0;
       opacity: 0;
+      -webkit-transform: scale(0);
       transform: scale(0);
     }
   }
@@ -110,7 +129,8 @@
     width: rem(15px);
   }
 
-  & .loader__bar {
+  .loader__bar {
+    -webkit-animation: loading 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
     animation: loading 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
   }
 }
