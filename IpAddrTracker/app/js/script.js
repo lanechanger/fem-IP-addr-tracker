@@ -31,7 +31,7 @@ toggleBtn.addEventListener("click", function (e) {
   }
 });
 
-// Main button that will throw
+// Main button that the app is based off of
 btn.addEventListener("click", function (e) {
   console.log("app button clicked");
   e.preventDefault();

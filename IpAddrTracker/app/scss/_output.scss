@@ -6,6 +6,10 @@
   max-width: rem(1110px);
   position: relative;
 
+  @include landscape(small) {
+    width: 100%;
+  }
+
   @include breakpoint-up(medium) {
     text-align: left;
   }
@@ -19,6 +23,11 @@
     transform-origin: top;
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
+
+    @include landscape(small) {
+      display: grid;
+      grid: "r1c1 r1c2"1fr "r2c1 r2c2"1fr / 1fr 1fr;
+    }
 
     &-is-collapsed {
       @include breakpoint-down(small) {
@@ -102,6 +111,11 @@
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
     z-index: 2;
+
+    // don't display for larger viewports
+    @include landscape(small) {
+      display: none;
+    }
 
     // don't display for larger viewports
     @include breakpoint-up(medium) {

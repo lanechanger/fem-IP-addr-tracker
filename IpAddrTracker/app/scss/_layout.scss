@@ -15,6 +15,11 @@
   &output-container {
     padding: 0 rem(20px);
     width: 100%;
+
+    @include landscape(small) {
+      position: absolute;
+      top: rem(95px);
+    }
   }
 
   &flex {
@@ -67,6 +72,26 @@
       }
     }
   }
+
+  &grid {
+    @include landscape(small) {
+      &-1 {
+        grid-area: r1c1;
+      }
+
+      &-2 {
+        grid-area: r1c2;
+      }
+
+      &-3 {
+        grid-area: r2c1;
+      }
+
+      &-4 {
+        grid-area: r2c2;
+      }
+    }
+  }
 }
 
 .app {
@@ -77,7 +102,7 @@
     margin-top: rem(29px);
 
     @include landscape(small) {
-      margin-top: rem(10px);
+      margin-top: rem(5px);
     }
 
     @include breakpoint-up(medium) {
@@ -100,6 +125,11 @@
 .output {
   margin-top: rem(24px);
   padding: rem(26px) rem(24px) rem(10px) rem(24px);
+
+  @include landscape(small) {
+    margin-top: rem(5px);
+    padding: rem(10px);
+  }
 
   @include breakpoint-up(medium) {
     margin-top: rem(48px);
@@ -125,6 +155,10 @@
 
     &:not(:first-child) {
       margin-top: rem(24px);
+
+      @include landscape(small) {
+        margin-top: 0;
+      }
 
       @include breakpoint-up(medium) {
         margin-top: 0;

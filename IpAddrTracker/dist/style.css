@@ -16,6 +16,7 @@ body {
   font-family: 'Rubik', sans-serif;
   height: 100%;
   min-height: 100vh;
+  position: relative;
   text-align: center;
 }
 
@@ -62,6 +63,13 @@ hr {
   width: 100%;
 }
 
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .l-output-container {
+    position: absolute;
+    top: 5.9375rem;
+  }
+}
+
 .l-flex {
   display: flex;
 }
@@ -95,6 +103,21 @@ hr {
   }
 }
 
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .l-grid-1 {
+    grid-area: r1c1;
+  }
+  .l-grid-2 {
+    grid-area: r1c2;
+  }
+  .l-grid-3 {
+    grid-area: r2c1;
+  }
+  .l-grid-4 {
+    grid-area: r2c2;
+  }
+}
+
 .app__form {
   flex: 1 0 3.625rem;
   margin-top: 1.8125rem;
@@ -102,7 +125,7 @@ hr {
 
 @media screen and (max-height: 550px) and (max-width: 1013px) {
   .app__form {
-    margin-top: 0.625rem;
+    margin-top: 0.3125rem;
   }
 }
 
@@ -124,6 +147,13 @@ hr {
 .output {
   margin-top: 1.5rem;
   padding: 1.625rem 1.5rem 0.625rem 1.5rem;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output {
+    margin-top: 0.3125rem;
+    padding: 0.625rem;
+  }
 }
 
 @media screen and (min-width: 1014px) {
@@ -151,6 +181,12 @@ hr {
 
 .output__section:not(:first-child) {
   margin-top: 1.5rem;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__section:not(:first-child) {
+    margin-top: 0;
+  }
 }
 
 @media screen and (min-width: 1014px) {
@@ -202,6 +238,12 @@ hr {
   position: relative;
 }
 
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 1014px) {
   .output {
     text-align: left;
@@ -214,6 +256,13 @@ hr {
   transform: scale(1);
   transform-origin: top;
   transition: all 300ms ease-in-out;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__list {
+    display: grid;
+    grid: "r1c1 r1c2" 1fr "r2c1 r2c2" 1fr/1fr 1fr;
+  }
 }
 
 @media screen and (max-width: 1013px) {
@@ -294,6 +343,12 @@ hr {
   transform: scale(0);
   transition: all 300ms ease-in-out;
   z-index: 2;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__label {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1014px) {
