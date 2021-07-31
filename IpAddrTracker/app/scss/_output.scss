@@ -164,6 +164,7 @@
     }
 
     // don't display for larger viewports
+
     @include breakpoint-up(medium) {
       display: none;
     }
