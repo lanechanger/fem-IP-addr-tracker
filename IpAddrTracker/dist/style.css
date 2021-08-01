@@ -106,9 +106,11 @@ hr {
 @media screen and (max-height: 550px) and (max-width: 1013px) {
   .l-grid-1 {
     grid-area: r1c1;
+    margin-bottom: 5px;
   }
   .l-grid-2 {
     grid-area: r1c2;
+    margin-bottom: 5px;
   }
   .l-grid-3 {
     grid-area: r2c1;
@@ -168,9 +170,12 @@ hr {
 }
 
 @media screen and (max-height: 550px) and (max-width: 1013px) {
-  .output__list-is-collapsed .output__flag {
-    margin: 0;
+  .output.output-is-collapsed {
+    padding: 0;
   }
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
   .output__list-is-collapsed .output__text {
     margin: 0;
   }
@@ -215,6 +220,12 @@ hr {
   }
 }
 
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__flag {
+    margin: 0;
+  }
+}
+
 .output__text {
   margin-top: 0.4375rem;
 }
@@ -225,17 +236,34 @@ hr {
   }
 }
 
+.output__toggle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .output__toggle-is-collapsed {
   margin-top: 0.625rem;
 }
 
-.flag-container {
-  align-items: flex-end;
-  flex-wrap: wrap;
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__toggle-is-collapsed {
+    margin-top: 0;
+  }
 }
 
-.flag-container > span {
-  white-space: nowrap;
+.output__toggle:after {
+  margin-left: -0.3125rem;
+}
+
+.flag-container {
+  flex-direction: column;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .flag-container {
+    flex-direction: row;
+    align-items: flex-end;
+  }
 }
 
 .loader__bar {
@@ -263,9 +291,13 @@ hr {
 @media screen and (max-height: 550px) and (max-width: 1013px) {
   .output {
     width: 100%;
+    transition: all 500ms ease-in-out, padding 0ms ease-in-out;
   }
   .output-is-collapsed {
-    width: 0;
+    width: 1.875rem;
+  }
+  .output.output-is-loading {
+    width: auto;
   }
 }
 
@@ -287,9 +319,7 @@ hr {
   .output__list {
     display: grid;
     grid: "r1c1 r1c2" 1fr "r2c1 r2c2" 1fr/1fr 1fr;
-  }
-  .output__list-is-collapsed {
-    height: 0;
+    transition-duration: 500ms;
   }
 }
 
@@ -372,6 +402,12 @@ hr {
   width: 2.5rem;
 }
 
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__flag {
+    transition: all 500ms ease-in-out;
+  }
+}
+
 .output__label {
   display: inline-block;
   height: 0;
@@ -399,8 +435,8 @@ hr {
   display: block;
   height: 1.5rem;
   position: relative;
-  transition: all 150ms ease-in-out;
-  width: 100%;
+  transition: all 300ms ease-in-out;
+  width: 50%;
 }
 
 .output__toggle:hover .output__toggle:after {
@@ -421,6 +457,15 @@ hr {
   position: absolute;
   transform: rotate(180deg);
   width: 0.625rem;
+  transition: all 300ms ease-in-out;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__toggle-is-collapsed {
+    height: 1.875rem;
+    width: 1.875rem;
+    border-radius: 50%;
+  }
 }
 
 .output__toggle-is-collapsed:after {

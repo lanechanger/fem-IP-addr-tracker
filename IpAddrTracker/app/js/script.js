@@ -172,6 +172,7 @@ function loading() {
   list.classList.add("output__list-is-loading");
   toggleBtn.classList.add("output__toggle-is-collapsed");
   main.classList.remove("output-is-collapsed");
+  main.classList.add("output-is-loading");
 }
 
 // Turn loading div off while showing the list again
@@ -181,4 +182,5 @@ function loaded() {
   list.classList.remove("output__list-is-loading");
   list.classList.remove("output__list-is-collapsed");
   toggleBtn.classList.remove("output__toggle-is-collapsed");
+  main.classList.remove("output-is-loading");
 }

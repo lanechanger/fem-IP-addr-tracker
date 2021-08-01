@@ -77,10 +77,12 @@
     @include landscape(small) {
       &-1 {
         grid-area: r1c1;
+        margin-bottom: 5px;
       }
 
       &-2 {
         grid-area: r1c2;
+        margin-bottom: 5px;
       }
 
       &-3 {
@@ -140,12 +142,14 @@
     flex-grow: 1;
   }
 
+  &.output-is-collapsed {
+    @include landscape(small) {
+      padding: 0;
+    }
+  }
+
   &__list-is-collapsed {
     @include landscape(small) {
-      & .output__flag {
-        margin: 0;
-      }
-
       & .output__text {
         margin: 0;
       }
@@ -187,6 +191,11 @@
       margin: auto;
       margin-bottom: rem(-10px);
     }
+
+
+    @include landscape(small) {
+      margin: 0;
+    }
   }
 
   &__text {
@@ -198,18 +207,29 @@
   }
 
   &__toggle {
+    margin-left: auto;
+    margin-right: auto;
+
     &-is-collapsed {
       margin-top: rem(10px);
+
+      @include landscape(small) {
+        margin-top: 0;
+      }
+    }
+
+    &:after {
+      margin-left: rem(-5px);
     }
   }
 }
 
 .flag-container {
-  align-items: flex-end;
-  flex-wrap: wrap;
+  flex-direction: column;
 
-  >span {
-    white-space: nowrap;
+  @include landscape(small) {
+    flex-direction: row;
+    align-items: flex-end;
   }
 }
 

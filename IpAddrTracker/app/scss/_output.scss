@@ -8,9 +8,15 @@
 
   @include landscape(small) {
     width: 100%;
+    -webkit-transition: all 500ms ease-in-out, padding 0ms ease-in-out;
+    transition: all 500ms ease-in-out, padding 0ms ease-in-out;
 
     &-is-collapsed {
-      width: 0;
+      width: rem(30px);
+    }
+
+    &.output-is-loading {
+      width: auto;
     }
   }
 
@@ -31,10 +37,7 @@
     @include landscape(small) {
       display: grid;
       grid: "r1c1 r1c2"1fr "r2c1 r2c2"1fr / 1fr 1fr;
-
-      &-is-collapsed {
-        height: 0;
-      }
+      transition-duration: 500ms;
     }
 
     &-is-collapsed {
@@ -115,6 +118,11 @@
     background-size: contain;
     height: rem(20px);
     width: rem(40px);
+
+    @include landscape(small) {
+      -webkit-transition: all 500ms ease-in-out;
+      transition: all 500ms ease-in-out;
+    }
   }
 
   &__label {
@@ -128,7 +136,7 @@
     transition: all 300ms ease-in-out;
     z-index: 2;
 
-    // don't display for larger viewports
+    // don't display for landscape viewports
     @include landscape(small) {
       display: none;
     }
@@ -144,8 +152,8 @@
     display: block;
     height: rem(24px);
     position: relative;
-    transition: all 150ms ease-in-out;
-    width: 100%;
+    transition: all 300ms ease-in-out;
+    width: 50%;
 
     &:hover .output__toggle:after {
       transform: scale(1.2) rotate(180deg);
@@ -165,10 +173,15 @@
       position: absolute;
       transform: rotate(180deg);
       width: rem(10px);
+      transition: all 300ms ease-in-out;
     }
 
     &-is-collapsed {
-
+      @include landscape(small) {
+        height: rem(30px);
+        width: rem(30px);
+        border-radius: 50%;
+      }
 
       &:after {
         transform: none;
