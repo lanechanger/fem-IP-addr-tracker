@@ -25,9 +25,11 @@ toggleBtn.addEventListener("click", function (e) {
   if (list.classList.contains("output__list-is-collapsed")) {
     list.classList.remove("output__list-is-collapsed");
     toggleBtn.classList.remove("output__toggle-is-collapsed");
+    main.classList.remove("output-is-collapsed");
   } else {
     list.classList.add("output__list-is-collapsed");
     toggleBtn.classList.add("output__toggle-is-collapsed");
+    main.classList.add("output-is-collapsed");
   }
 });
 
@@ -169,6 +171,7 @@ function loading() {
   list.classList.add("output__list-is-collapsed");
   list.classList.add("output__list-is-loading");
   toggleBtn.classList.add("output__toggle-is-collapsed");
+  main.classList.remove("output-is-collapsed");
 }
 
 // Turn loading div off while showing the list again

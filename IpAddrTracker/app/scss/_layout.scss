@@ -136,6 +136,22 @@
     padding: rem(37px) rem(32px);
   }
 
+  &__location {
+    flex-grow: 1;
+  }
+
+  &__list-is-collapsed {
+    @include landscape(small) {
+      & .output__flag {
+        margin: 0;
+      }
+
+      & .output__text {
+        margin: 0;
+      }
+    }
+  }
+
   &__list-is-loading {
     &+.loader {
       padding-bottom: rem(10px);
@@ -185,6 +201,15 @@
     &-is-collapsed {
       margin-top: rem(10px);
     }
+  }
+}
+
+.flag-container {
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  >span {
+    white-space: nowrap;
   }
 }
 

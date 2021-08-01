@@ -163,6 +163,19 @@ hr {
   }
 }
 
+.output__location {
+  flex-grow: 1;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__list-is-collapsed .output__flag {
+    margin: 0;
+  }
+  .output__list-is-collapsed .output__text {
+    margin: 0;
+  }
+}
+
 .output__list-is-loading + .loader {
   padding-bottom: 0.625rem;
   padding-top: 0.625rem;
@@ -216,6 +229,15 @@ hr {
   margin-top: 0.625rem;
 }
 
+.flag-container {
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.flag-container > span {
+  white-space: nowrap;
+}
+
 .loader__bar {
   margin-top: 0.5rem;
 }
@@ -242,6 +264,9 @@ hr {
   .output {
     width: 100%;
   }
+  .output-is-collapsed {
+    width: 0;
+  }
 }
 
 @media screen and (min-width: 1014px) {
@@ -262,6 +287,18 @@ hr {
   .output__list {
     display: grid;
     grid: "r1c1 r1c2" 1fr "r2c1 r2c2" 1fr/1fr 1fr;
+  }
+  .output__list-is-collapsed {
+    height: 0;
+  }
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .output__list-is-collapsed {
+    font-size: 0;
+  }
+  .output__list-is-collapsed .out__flag {
+    width: 0;
   }
 }
 

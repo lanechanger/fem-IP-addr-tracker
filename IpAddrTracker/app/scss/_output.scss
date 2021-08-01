@@ -8,6 +8,10 @@
 
   @include landscape(small) {
     width: 100%;
+
+    &-is-collapsed {
+      width: 0;
+    }
   }
 
   @include breakpoint-up(medium) {
@@ -27,9 +31,21 @@
     @include landscape(small) {
       display: grid;
       grid: "r1c1 r1c2"1fr "r2c1 r2c2"1fr / 1fr 1fr;
+
+      &-is-collapsed {
+        height: 0;
+      }
     }
 
     &-is-collapsed {
+      @include landscape(small) {
+        & .out__flag {
+          width: 0;
+        }
+
+        font-size: 0;
+      }
+
       @include breakpoint-down(small) {
         max-height: rem(0);
         opacity: 0;
@@ -152,6 +168,8 @@
     }
 
     &-is-collapsed {
+
+
       &:after {
         transform: none;
       }
