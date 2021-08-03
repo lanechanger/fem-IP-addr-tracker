@@ -28,15 +28,23 @@ initMap();
 toggleBtn.addEventListener("click", function (e) {
   console.log("toggle button clicked");
   if (list.classList.contains("output__list-is-collapsed")) {
-    list.classList.remove("output__list-is-collapsed");
-    toggleBtn.classList.remove("output__toggle-is-collapsed");
-    main.classList.remove("output-is-collapsed");
+    removeCollapse();
   } else {
-    list.classList.add("output__list-is-collapsed");
-    toggleBtn.classList.add("output__toggle-is-collapsed");
-    main.classList.add("output-is-collapsed");
+    addCollapse();
   }
 });
+
+function addCollapse() {
+  list.classList.add("output__list-is-collapsed");
+  toggleBtn.classList.add("output__toggle-is-collapsed");
+  main.classList.add("output-is-collapsed");
+}
+
+function removeCollapse() {
+  list.classList.remove("output__list-is-collapsed");
+  toggleBtn.classList.remove("output__toggle-is-collapsed");
+  main.classList.remove("output-is-collapsed");
+}
 
 // Main button that the app is based off of
 btn.addEventListener("click", function (e) {
@@ -189,3 +197,22 @@ function loaded() {
   toggleBtn.classList.remove("output__toggle-is-collapsed");
   main.classList.remove("output-is-loading");
 }
+
+// make the list semi transparent while the map is flying or being dragged
+mymap.on('move', () => {
+  main.classList.add("semi-transparent")
+});
+
+// remove transparency after the moving had ended
+mymap.on('moveend', () => {
+  main.classList.remove("semi-transparent")
+});
+
+// If the user changes the viewport large enough while the list is collapsed then remove the collapsed classes
+window.addEventListener('resize', function (event) {
+  var newWidth = document.documentElement.clientWidth;
+  console.log(newWidth);
+  if (newWidth > 1013) {
+    removeCollapse();
+  }
+});

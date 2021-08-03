@@ -97,21 +97,6 @@
 }
 
 .app {
-  &__form {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 rem(58px);
-    flex: 1 0 rem(58px);
-    margin-top: rem(29px);
-
-    @include landscape(small) {
-      margin-top: rem(5px);
-    }
-
-    @include breakpoint-up(medium) {
-      margin-top: rem(31px);
-    }
-  }
-
   &__search {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
@@ -221,6 +206,21 @@
     &:after {
       margin-left: rem(-5px);
     }
+  }
+}
+
+.form-container {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 rem(58px);
+  flex: 1 0 rem(58px);
+  margin-top: rem(29px);
+
+  @include landscape(small) {
+    margin-top: rem(5px);
+  }
+
+  @include breakpoint-up(medium) {
+    margin-top: rem(31px);
   }
 }
 

@@ -120,23 +120,6 @@ hr {
   }
 }
 
-.app__form {
-  flex: 1 0 3.625rem;
-  margin-top: 1.8125rem;
-}
-
-@media screen and (max-height: 550px) and (max-width: 1013px) {
-  .app__form {
-    margin-top: 0.3125rem;
-  }
-}
-
-@media screen and (min-width: 1014px) {
-  .app__form {
-    margin-top: 1.9375rem;
-  }
-}
-
 .app__search {
   flex-grow: 1;
   padding: 1rem 0 1rem 1.5rem;
@@ -255,6 +238,23 @@ hr {
   margin-left: -0.3125rem;
 }
 
+.form-container {
+  flex: 1 0 3.625rem;
+  margin-top: 1.8125rem;
+}
+
+@media screen and (max-height: 550px) and (max-width: 1013px) {
+  .form-container {
+    margin-top: 0.3125rem;
+  }
+}
+
+@media screen and (min-width: 1014px) {
+  .form-container {
+    margin-top: 1.9375rem;
+  }
+}
+
 .flag-container {
   flex-direction: column;
 }
@@ -286,6 +286,7 @@ hr {
   line-height: calc(12/10);
   max-width: 69.375rem;
   position: relative;
+  transition: opacity 300ms ease-in-out;
 }
 
 @media screen and (max-height: 550px) and (max-width: 1013px) {
@@ -525,10 +526,6 @@ hr {
   background-color: #fff;
   border-radius: 0.9375rem;
   box-shadow: 0px 3.125rem 3.125rem -1.5625rem rgba(0, 0, 0, 0.0983665);
-  max-height: 3.625rem;
-  max-width: 34.375rem;
-  overflow: hidden;
-  width: 100%;
 }
 
 .app__search {
@@ -601,6 +598,17 @@ hr {
 
 .loader .loader__bar {
   animation: loading 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+}
+
+.form-container {
+  max-height: 3.625rem;
+  max-width: 34.375rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.semi-transparent {
+  opacity: 0.5;
 }
 
 .map {

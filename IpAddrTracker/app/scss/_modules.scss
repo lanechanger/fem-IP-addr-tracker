@@ -22,8 +22,6 @@
     letter-spacing: rem(-0.232143px);
     line-height: calc(30 / 26);
 
-    @include landscape(small) {}
-
     @include breakpoint-up(medium) {
       font-size: rem(32px);
       line-height: calc(30 / 32);
@@ -34,10 +32,6 @@
     background-color: #fff;
     border-radius: rem(15px);
     box-shadow: 0px rem(50px) rem(50px) rem(-25px) rgba(0, 0, 0, 0.0983665);
-    max-height: rem(58px);
-    max-width: rem(550px);
-    overflow: hidden;
-    width: 100%;
   }
 
   &__search {
@@ -133,6 +127,17 @@
     -webkit-animation: loading 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
     animation: loading 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
   }
+}
+
+.form-container {
+  max-height: rem(58px);
+  max-width: rem(550px);
+  overflow: hidden;
+  width: 100%;
+}
+
+.semi-transparent {
+  opacity: 0.5;
 }
 
 .map {
