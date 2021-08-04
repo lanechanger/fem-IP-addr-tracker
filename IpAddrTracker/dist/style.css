@@ -531,6 +531,7 @@ hr {
 .app__search {
   font-size: 1.125rem;
   line-height: calc(21 / 18);
+  border: none;
 }
 
 .app__search::placeholder {

@@ -37,6 +37,7 @@
   &__search {
     font-size: rem(18px);
     line-height: calc(21 / 18);
+    border: none;
 
     &::-webkit-input-placeholder {
       color: $darkGray;
