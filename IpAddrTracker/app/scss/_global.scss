@@ -29,6 +29,23 @@ button {
   cursor: pointer;
 }
 
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 4px dotted red;
+  outline-offset: -6px;
+}
+
+a:focus-visible {
+  outline: 3px dotted red;
+  outline-offset: 3px;
+}
+
 hr {
   border: 0;
   border-color: white;
