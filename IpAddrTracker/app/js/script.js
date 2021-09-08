@@ -26,7 +26,7 @@ initMap();
 
 // button at the bottom of the text section to collapse the section
 toggleBtn.addEventListener("click", function (e) {
-  console.log("toggle button clicked");
+  // console.log("toggle button clicked");
   if (list.classList.contains("output__list-is-collapsed")) {
     removeCollapse();
   } else {
@@ -48,7 +48,7 @@ function removeCollapse() {
 
 // Main button that the app is based off of
 btn.addEventListener("click", function (e) {
-  console.log("app button clicked");
+  // console.log("app button clicked");
   e.preventDefault();
 
   let input = search.value;
@@ -145,7 +145,7 @@ async function callMapBoxAPI() {
 // At the same time, call country REST API to get their flag
 // This API I'll leave on the client end as there are no authentications involved
 function parseGeoIpJSON(json) {
-  console.log(json);
+  // console.log(json);
 
   fetch(`https://restcountries.eu/rest/v2/alpha/${json.location.country}`)
     .then(response => response.json())
@@ -179,7 +179,7 @@ btn.addEventListener("keydown", function (event) {
 
 // Turn loading div on while shutting the list off
 function loading() {
-  console.log("loading");
+  // console.log("loading");
   loader.classList.add("loader-is-loading");
   list.classList.add("output__list-is-collapsed");
   list.classList.add("output__list-is-loading");
@@ -190,7 +190,7 @@ function loading() {
 
 // Turn loading div off while showing the list again
 function loaded() {
-  console.log("loaded");
+  // console.log("loaded");
   loader.classList.remove("loader-is-loading");
   list.classList.remove("output__list-is-loading");
   list.classList.remove("output__list-is-collapsed");
@@ -211,7 +211,7 @@ mymap.on('moveend', () => {
 // If the user changes the viewport large enough while the list is collapsed then remove the collapsed classes
 window.addEventListener('resize', function (event) {
   var newWidth = document.documentElement.clientWidth;
-  console.log(newWidth);
+  // console.log(newWidth);
   if (newWidth > 1013) {
     removeCollapse();
   }
